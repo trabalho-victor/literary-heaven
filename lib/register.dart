@@ -17,13 +17,23 @@ class _MyRegisterState extends State<MyRegister> {
     return Scaffold(
       body: Stack(
         children: [
-          // Fundo claro com gradiente suave
+          // Imagem de fundo
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/fundo.png"), // mesma imagem da tela de login
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+
+          // Gradiente branco sutil sobre a imagem
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.95),
-                  Colors.white.withOpacity(0.85),
+                  Colors.white.withOpacity(0.4), // ajuste aqui para controlar transparência
+                  Colors.white.withOpacity(0.2),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -31,6 +41,7 @@ class _MyRegisterState extends State<MyRegister> {
             ),
           ),
 
+          // Conteúdo principal
           Center(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
@@ -48,7 +59,7 @@ class _MyRegisterState extends State<MyRegister> {
                   ),
                   const SizedBox(height: 40),
 
-                  // Card central semelhante ao da tela de login
+                  // Card de registro
                   Container(
                     padding: const EdgeInsets.all(25),
                     decoration: BoxDecoration(
@@ -143,10 +154,9 @@ class _MyRegisterState extends State<MyRegister> {
                         ),
                         const SizedBox(height: 30),
 
-                        // Botão preto — igual ao login
+                        // Botão preto
                         GestureDetector(
                           onTap: () {
-                            // Aqui você pode adicionar a lógica de registro
                             Navigator.pushNamed(context, 'login');
                           },
                           child: Container(

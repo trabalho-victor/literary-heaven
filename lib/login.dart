@@ -46,20 +46,23 @@ class _MyLoginState extends State<MyLogin> {
     return Scaffold(
       body: Stack(
         children: [
-          // Fundo claro com imagem leve
+          // Imagem de fundo
           Container(
             decoration: const BoxDecoration(
-
+              image: DecorationImage(
+                image: AssetImage("assets/fundo.png"),
+                fit: BoxFit.cover, // cobre toda a tela
+              ),
             ),
           ),
 
-          // Gradiente sutil para dar profundidade
+          // Gradiente branco sutil por cima da imagem
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.9),
-                  Colors.white.withOpacity(0.8),
+                  Colors.white.withOpacity(0.4),
+                  Colors.white.withOpacity(0.2),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -67,6 +70,7 @@ class _MyLoginState extends State<MyLogin> {
             ),
           ),
 
+          // Conteúdo da tela
           Center(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
@@ -124,6 +128,7 @@ class _MyLoginState extends State<MyLogin> {
                           ),
                         ),
                         const SizedBox(height: 20),
+
                         TextField(
                           controller: password,
                           obscureText: true,
@@ -150,6 +155,7 @@ class _MyLoginState extends State<MyLogin> {
                         ),
 
                         const SizedBox(height: 15),
+
                         Row(
                           children: [
                             Checkbox(
