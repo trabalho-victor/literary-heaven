@@ -11,6 +11,7 @@ class _MyRegisterState extends State<MyRegister> {
   final TextEditingController name = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+  final TextEditingController confirmation = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +137,33 @@ class _MyRegisterState extends State<MyRegister> {
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Password",
+                            hintStyle:
+                                TextStyle(color: Colors.grey.shade600),
+                            prefixIcon: Icon(Icons.lock_outline,
+                                color: Colors.grey.shade700),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide:
+                                  const BorderSide(color: Colors.transparent),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                  color: Colors.grey.shade400, width: 1.2),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 30),
+
+                        // Botão confirmar senha
+                        TextField(
+                          controller: confirmation,
+                          obscureText: true,
+                          style: const TextStyle(color: Colors.black87),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey.shade100,
+                            hintText: "Confirm Password",
                             hintStyle:
                                 TextStyle(color: Colors.grey.shade600),
                             prefixIcon: Icon(Icons.lock_outline,
