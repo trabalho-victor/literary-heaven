@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:literary_heaven/models/header.dart';
+import 'package:literary_heaven/widgets/header.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

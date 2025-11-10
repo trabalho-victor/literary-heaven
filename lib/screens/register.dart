@@ -1,45 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:literary_heaven/home.dart';
 
-class MyLogin extends StatefulWidget {
-  const MyLogin({Key? key}) : super(key: key);
+class MyRegister extends StatefulWidget {
+  const MyRegister({super.key});
 
   @override
-  _MyLoginState createState() => _MyLoginState();
+  State<MyRegister> createState() => _MyRegisterState();
 }
 
-class _MyLoginState extends State<MyLogin> {
-  bool isChecked = false;
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
-
-  late Box box1;
-
-  @override
-  void initState() {
-    super.initState();
-    createBox();
-  }
-
-  void createBox() async {
-    box1 = await Hive.openBox('logininfo');
-    getdata();
-  }
-
-  void getdata() async {
-    if (box1.get('email') != null) {
-      email.text = box1.get('email');
-      isChecked = true;
-      setState(() {});
-    }
-    if (box1.get('password') != null) {
-      password.text = box1.get('password');
-      isChecked = true;
-      setState(() {});
-    }
-  }
+class _MyRegisterState extends State<MyRegister> {
+  final TextEditingController name = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,19 +21,19 @@ class _MyLoginState extends State<MyLogin> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/fundo.png"),
-                fit: BoxFit.cover, // cobre toda a tela
+                image: AssetImage("assets/fundo.png"), // mesma imagem da tela de login
+                fit: BoxFit.cover,
               ),
             ),
           ),
 
-          // Gradiente branco sutil por cima da imagem
+          // Gradiente branco sutil sobre a imagem
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.4),
-                  Colors.white.withOpacity(0.2),
+                  const Color.fromRGBO(255, 255, 255, 0.4), // ajuste aqui para controlar transparência
+                  const Color.fromRGBO(255, 255, 255, 0.2),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -70,7 +41,7 @@ class _MyLoginState extends State<MyLogin> {
             ),
           ),
 
-          // Conteúdo da tela
+          // Conteúdo principal
           Center(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
@@ -88,7 +59,7 @@ class _MyLoginState extends State<MyLogin> {
                   ),
                   const SizedBox(height: 40),
 
-                  // Card branco com sombra suave
+                  // Card de registro
                   Container(
                     padding: const EdgeInsets.all(25),
                     decoration: BoxDecoration(
@@ -96,7 +67,7 @@ class _MyLoginState extends State<MyLogin> {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.25),
+                          color: const Color.fromRGBO(0, 0, 0, 0.25),
                           blurRadius: 10,
                           offset: const Offset(0, 6),
                         ),
@@ -104,6 +75,33 @@ class _MyLoginState extends State<MyLogin> {
                     ),
                     child: Column(
                       children: [
+                        // Campo de Nome
+                        TextField(
+                          controller: name,
+                          style: const TextStyle(color: Colors.black87),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey.shade100,
+                            hintText: "Name",
+                            hintStyle:
+                                TextStyle(color: Colors.grey.shade600),
+                            prefixIcon: Icon(Icons.person_outline,
+                                color: Colors.grey.shade700),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide:
+                                  const BorderSide(color: Colors.transparent),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                  color: Colors.grey.shade400, width: 1.2),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+
+                        // Campo de Email
                         TextField(
                           controller: email,
                           style: const TextStyle(color: Colors.black87),
@@ -129,6 +127,7 @@ class _MyLoginState extends State<MyLogin> {
                         ),
                         const SizedBox(height: 20),
 
+                        // Campo de Senha
                         TextField(
                           controller: password,
                           obscureText: true,
@@ -153,37 +152,12 @@ class _MyLoginState extends State<MyLogin> {
                             ),
                           ),
                         ),
-
-                        const SizedBox(height: 15),
-
-                        Row(
-                          children: [
-                            Checkbox(
-                              activeColor: Colors.black,
-                              value: isChecked,
-                              onChanged: (value) {
-                                setState(() => isChecked = value!);
-                              },
-                            ),
-                            const Text(
-                              "Remember Me",
-                              style: TextStyle(color: Colors.black54),
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(height: 25),
+                        const SizedBox(height: 30),
 
                         // Botão preto
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => home(),
-                              ),
-                            );
-                            login();
+                            Navigator.pushNamed(context, 'login');
                           },
                           child: Container(
                             width: double.infinity,
@@ -193,7 +167,7 @@ class _MyLoginState extends State<MyLogin> {
                               borderRadius: BorderRadius.circular(15),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.2),
+                                  color: const Color.fromRGBO(0, 0, 0, 0.2),
                                   blurRadius: 6,
                                   offset: const Offset(0, 3),
                                 ),
@@ -201,7 +175,7 @@ class _MyLoginState extends State<MyLogin> {
                             ),
                             child: const Center(
                               child: Text(
-                                "Log In",
+                                "Sign Up",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -211,28 +185,22 @@ class _MyLoginState extends State<MyLogin> {
                             ),
                           ),
                         ),
-
                         const SizedBox(height: 25),
 
+                        // Link para login
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'register');
-                              },
-                              child: const Text(
-                                'Sign Up',
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
+                            const Text(
+                              "Already have an account?",
+                              style: TextStyle(color: Colors.black54),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, 'login');
+                              },
                               child: const Text(
-                                'Forgot Password?',
+                                'Sign In',
                                 style: TextStyle(
                                   color: Colors.black87,
                                   decoration: TextDecoration.underline,
@@ -251,12 +219,5 @@ class _MyLoginState extends State<MyLogin> {
         ],
       ),
     );
-  }
-
-  void login() {
-    if (isChecked) {
-      box1.put('email', email.text);
-      box1.put('password', password.text);
-    }
   }
 }

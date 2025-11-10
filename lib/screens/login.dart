@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:literary_heaven/screens/home_screen.dart';
 
-class MyRegister extends StatefulWidget {
-  const MyRegister({Key? key}) : super(key: key);
+class MyLogin extends StatefulWidget {
+  const MyLogin({super.key});
 
   @override
-  _MyRegisterState createState() => _MyRegisterState();
+  State<MyLogin> createState() => _MyLoginState();
 }
 
-class _MyRegisterState extends State<MyRegister> {
-  final TextEditingController name = TextEditingController();
-  final TextEditingController email = TextEditingController();
-  final TextEditingController password = TextEditingController();
+class _MyLoginState extends State<MyLogin> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +21,19 @@ class _MyRegisterState extends State<MyRegister> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/fundo.png"), // mesma imagem da tela de login
-                fit: BoxFit.cover,
+                image: AssetImage("assets/fundo.png"),
+                fit: BoxFit.cover, // cobre toda a tela
               ),
             ),
           ),
 
-          // Gradiente branco sutil sobre a imagem
+          // Gradiente branco sutil por cima da imagem
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.4), // ajuste aqui para controlar transparência
-                  Colors.white.withOpacity(0.2),
+                  const Color.fromRGBO(255, 255, 255, 0.4),
+                  const Color.fromRGBO(255, 255, 255, 0.2),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -41,7 +41,7 @@ class _MyRegisterState extends State<MyRegister> {
             ),
           ),
 
-          // Conteúdo principal
+          // Conteúdo da tela
           Center(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
@@ -59,7 +59,7 @@ class _MyRegisterState extends State<MyRegister> {
                   ),
                   const SizedBox(height: 40),
 
-                  // Card de registro
+                  // Card branco com sombra suave
                   Container(
                     padding: const EdgeInsets.all(25),
                     decoration: BoxDecoration(
@@ -67,7 +67,7 @@ class _MyRegisterState extends State<MyRegister> {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.25),
+                          color: const Color.fromRGBO(0, 0, 0, 0.25),
                           blurRadius: 10,
                           offset: const Offset(0, 6),
                         ),
@@ -75,33 +75,6 @@ class _MyRegisterState extends State<MyRegister> {
                     ),
                     child: Column(
                       children: [
-                        // Campo de Nome
-                        TextField(
-                          controller: name,
-                          style: const TextStyle(color: Colors.black87),
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.grey.shade100,
-                            hintText: "Name",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
-                            prefixIcon: Icon(Icons.person_outline,
-                                color: Colors.grey.shade700),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide:
-                                  const BorderSide(color: Colors.transparent),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-
-                        // Campo de Email
                         TextField(
                           controller: email,
                           style: const TextStyle(color: Colors.black87),
@@ -127,7 +100,6 @@ class _MyRegisterState extends State<MyRegister> {
                         ),
                         const SizedBox(height: 20),
 
-                        // Campo de Senha
                         TextField(
                           controller: password,
                           obscureText: true,
@@ -152,12 +124,38 @@ class _MyRegisterState extends State<MyRegister> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 30),
+
+                        const SizedBox(height: 15),
+
+                        // Removed "Remember Me" checkbox as Hive is removed
+                        // Row(
+                        //   children: [
+                        //     Checkbox(
+                        //       activeColor: Colors.black,
+                        //       value: isChecked,
+                        //       onChanged: (value) {
+                        //         setState(() => isChecked = value!);
+                        //       },
+                        //     ),
+                        //     const Text(
+                        //       "Remember Me",
+                        //       style: TextStyle(color: Colors.black54),
+                        //     ),
+                        //   ],
+                        // ),
+
+                        const SizedBox(height: 25),
 
                         // Botão preto
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, 'login');
+                            // Simulate successful login
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ),
+                            );
                           },
                           child: Container(
                             width: double.infinity,
@@ -167,7 +165,7 @@ class _MyRegisterState extends State<MyRegister> {
                               borderRadius: BorderRadius.circular(15),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.2),
+                                  color: const Color.fromRGBO(0, 0, 0, 0.2),
                                   blurRadius: 6,
                                   offset: const Offset(0, 3),
                                 ),
@@ -175,7 +173,7 @@ class _MyRegisterState extends State<MyRegister> {
                             ),
                             child: const Center(
                               child: Text(
-                                "Sign Up",
+                                "Log In",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -185,22 +183,28 @@ class _MyRegisterState extends State<MyRegister> {
                             ),
                           ),
                         ),
+
                         const SizedBox(height: 25),
 
-                        // Link para login
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
-                              "Already have an account?",
-                              style: TextStyle(color: Colors.black54),
-                            ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'login');
+                                Navigator.pushNamed(context, 'register');
                               },
                               child: const Text(
-                                'Sign In',
+                                'Sign Up',
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Forgot Password?',
                                 style: TextStyle(
                                   color: Colors.black87,
                                   decoration: TextDecoration.underline,

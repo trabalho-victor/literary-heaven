@@ -1,48 +1,33 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// Defines the possible statuses for a book in the user's library.
+enum BookStatus {
+  read,
+  reading,
+  wantToRead,
+}
 
+// Represents a book entity in the application.
 class Book {
   final String id;
-  final String userId;
   final String title;
   final String author;
-  final String genre;
-  final double? rating;
-  final String? comment;
-  final DateTime createdAt;
+  final String coverUrl;
+  final String synopsis;
+  final BookStatus status;
+  final double rating;
+  final List<String> notes;
+  final int currentPage;
+  final String currentChapter;
 
   Book({
     required this.id,
-    required this.userId,
     required this.title,
     required this.author,
-    required this.genre,
-    this.rating,
-    this.comment,
-    required this.createdAt,
+    required this.coverUrl,
+    required this.synopsis,
+    required this.status,
+    this.rating = 0.0,
+    this.notes = const [],
+    this.currentPage = 0,
+    this.currentChapter = '',
   });
-
-  factory Book.fromMap(Map<String, dynamic> map, String id) {
-    return Book(
-      id: id,
-      userId: map['userId'] ?? '',
-      title: map['title'] ?? '',
-      author: map['author'] ?? '',
-      genre: map['genre'] ?? '',
-      rating: map['rating'] != null ? (map['rating'] as num).toDouble() : null,
-      comment: map['comment'],
-      createdAt: (map['createdAt'] as Timestamp).toDate(),
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'userId': userId,
-      'title': title,
-      'author': author,
-      'genre': genre,
-      'rating': rating,
-      'comment': comment,
-      'createdAt': createdAt,
-    };
-  }
 }
