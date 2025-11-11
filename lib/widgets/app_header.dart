@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:literary_heaven/models/user.dart';
 import 'package:literary_heaven/screens/home_screen.dart';
 import 'package:literary_heaven/screens/my_books_screen.dart';
@@ -10,29 +11,17 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   final PreferredSizeWidget? bottom;
   final bool showBackButton;
   final Widget? title;
-  final double logoHeight;
 
-  const AppHeader(
-      {super.key,
-      this.bottom,
-      this.showBackButton = false,
-      this.title,
-      this.logoHeight = 24.0});
+  const AppHeader({
+    super.key,
+    this.bottom,
+    this.showBackButton = false,
+    this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
     final User? currentUser = AuthService().currentUser;
-
-    final logo = Text(
-      'Literary Heaven',
-      style: GoogleFonts.merriweather(
-        color: const Color(0xFF2D5016),
-        fontSize: 22,
-        fontWeight: FontWeight.bold,
-      ),
-      softWrap: false,
-      overflow: TextOverflow.ellipsis,
-    );
 
     return AppBar(
       backgroundColor: const Color(0xFFF5F4EC),
@@ -42,11 +31,17 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
               icon: const Icon(Icons.arrow_back, color: Color(0xFF2D5016)),
               onPressed: () => Navigator.of(context).pop(),
             )
-          : Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: Center(child: logo),
-            ),
-      title: title ?? (showBackButton ? logo : null),
+          : null,
+      title: title ??
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                "assets/logo.svg",
+                height: 32,
+              ),
+            ],
+          ),
       centerTitle: true,
       actions: [
         PopupMenuButton<String>(
@@ -86,12 +81,12 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
               child: Text('Home'),
             ),
             const PopupMenuItem<String>(
-              value: 'profile',
-              child: Text('Profile'),
-            ),
-            const PopupMenuItem<String>(
               value: 'my_books',
               child: Text('My Books'),
+            ),
+            const PopupMenuItem<String>(
+              value: 'profile',
+              child: Text('Profile'),
             ),
           ],
         ),
