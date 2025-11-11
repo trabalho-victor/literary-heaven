@@ -15,18 +15,10 @@ class _MyBooksScreenState extends State<MyBooksScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  // Filtered lists of books based on their status.
-  final List<Book> _readingBooks =
-      mockBooks.where((book) => book.status == BookStatus.reading).toList();
-  final List<Book> _wantToReadBooks =
-      mockBooks.where((book) => book.status == BookStatus.wantToRead).toList();
-  final List<Book> _readBooks =
-      mockBooks.where((book) => book.status == BookStatus.read).toList();
-
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -37,6 +29,17 @@ class _MyBooksScreenState extends State<MyBooksScreen>
 
   @override
   Widget build(BuildContext context) {
+    // Filtered lists of books based on their status and favorite state.
+    // These are re-filtered each time the build method is called to reflect changes.
+    final List<Book> readingBooks =
+        mockBooks.where((book) => book.status == BookStatus.reading).toList();
+    final List<Book> wantToReadBooks =
+        mockBooks.where((book) => book.status == BookStatus.wantToRead).toList();
+    final List<Book> readBooks =
+        mockBooks.where((book) => book.status == BookStatus.read).toList();
+    final List<Book> favoritedBooks =
+        mockBooks.where((book) => book.isFavorite).toList();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Library'),
@@ -47,15 +50,17 @@ class _MyBooksScreenState extends State<MyBooksScreen>
             Tab(text: 'Reading'),
             Tab(text: 'Want to Read'),
             Tab(text: 'Read'),
+            Tab(text: 'Favorites'),
           ],
         ),
       ),
       body: TabBarView(
         controller: _tabController,
         children: [
-          _buildBookGrid(_readingBooks),
-          _buildBookGrid(_wantToReadBooks),
-          _buildBookGrid(_readBooks),
+          _buildBookGrid(readingBooks),
+          _buildBookGrid(wantToReadBooks),
+          _buildBookGrid(readBooks),
+          _buildBookGrid(favoritedBooks),
         ],
       ),
     );
