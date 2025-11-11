@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/data/mock_users.dart';
-import 'package:literary_heaven/widgets/footer.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({super.key});
@@ -66,7 +65,9 @@ class _MyRegisterState extends State<MyRegister> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/fundo.png"), // mesma imagem da tela de login
+                image: AssetImage(
+                  "assets/fundo.png",
+                ), // mesma imagem da tela de login
                 fit: BoxFit.cover,
               ),
             ),
@@ -77,7 +78,12 @@ class _MyRegisterState extends State<MyRegister> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color.fromRGBO(255, 255, 255, 0.4), // ajuste aqui para controlar transparência
+                  const Color.fromRGBO(
+                    255,
+                    255,
+                    255,
+                    0.4,
+                  ), // ajuste aqui para controlar transparência
                   const Color.fromRGBO(255, 255, 255, 0.2),
                 ],
                 begin: Alignment.topCenter,
@@ -128,19 +134,23 @@ class _MyRegisterState extends State<MyRegister> {
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Name",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
-                            prefixIcon: Icon(Icons.person_outline,
-                                color: Colors.grey.shade700),
+                            hintStyle: TextStyle(color: Colors.grey.shade600),
+                            prefixIcon: Icon(
+                              Icons.person_outline,
+                              color: Colors.grey.shade700,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide:
-                                  const BorderSide(color: Colors.transparent),
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
+                                color: Colors.grey.shade400,
+                                width: 1.2,
+                              ),
                             ),
                           ),
                         ),
@@ -154,19 +164,23 @@ class _MyRegisterState extends State<MyRegister> {
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Email",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
-                            prefixIcon: Icon(Icons.email_outlined,
-                                color: Colors.grey.shade700),
+                            hintStyle: TextStyle(color: Colors.grey.shade600),
+                            prefixIcon: Icon(
+                              Icons.email_outlined,
+                              color: Colors.grey.shade700,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide:
-                                  const BorderSide(color: Colors.transparent),
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
+                                color: Colors.grey.shade400,
+                                width: 1.2,
+                              ),
                             ),
                           ),
                         ),
@@ -181,19 +195,23 @@ class _MyRegisterState extends State<MyRegister> {
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Password",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
-                            prefixIcon: Icon(Icons.lock_outline,
-                                color: Colors.grey.shade700),
+                            hintStyle: TextStyle(color: Colors.grey.shade600),
+                            prefixIcon: Icon(
+                              Icons.lock_outline,
+                              color: Colors.grey.shade700,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide:
-                                  const BorderSide(color: Colors.transparent),
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
+                                color: Colors.grey.shade400,
+                                width: 1.2,
+                              ),
                             ),
                           ),
                         ),
@@ -254,7 +272,7 @@ class _MyRegisterState extends State<MyRegister> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

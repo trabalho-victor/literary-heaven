@@ -1,13 +1,7 @@
 import 'package:literary_heaven/models/comment.dart';
 
-// Defines the possible statuses for a book in the user's library.
-enum BookStatus {
-  read,
-  reading,
-  wantToRead,
-}
+enum BookStatus { read, reading, wantToRead }
 
-// Represents a book entity in the application.
 class Book {
   final String id;
   final String title;

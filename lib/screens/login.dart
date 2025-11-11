@@ -3,11 +3,9 @@ import 'package:literary_heaven/data/mock_users.dart';
 import 'package:literary_heaven/models/user.dart';
 import 'package:literary_heaven/screens/profile.dart';
 import 'package:literary_heaven/services/auth_service.dart';
-import 'package:literary_heaven/widgets/footer.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
-
 
   @override
   State<MyLogin> createState() => _MyLoginState();
@@ -23,7 +21,8 @@ class _MyLoginState extends State<MyLogin> {
 
     try {
       final userMap = mockUsersData.firstWhere(
-        (user) => user['email'] == userEmail && user['password'] == userPassword,
+        (user) =>
+            user['email'] == userEmail && user['password'] == userPassword,
       );
 
       final user = User.fromMap(userMap, userMap['id']);

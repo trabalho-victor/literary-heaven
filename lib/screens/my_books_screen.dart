@@ -4,8 +4,8 @@ import 'package:literary_heaven/models/book.dart';
 import 'package:literary_heaven/widgets/book_card.dart';
 import 'package:literary_heaven/widgets/app_header.dart';
 import 'package:literary_heaven/widgets/footer.dart';
+import 'package:literary_heaven/screens/book_detail_screen.dart';
 
-// Main screen that displays the user's book collections.
 class MyBooksScreen extends StatefulWidget {
   const MyBooksScreen({super.key});
 
@@ -29,18 +29,52 @@ class _MyBooksScreenState extends State<MyBooksScreen>
     super.dispose();
   }
 
+  void _navigateToDetail(Book book) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => BookDetailScreen(book: book)),
+    );
+    setState(() {});
+  }
+
+  void _toggleFavorite(Book book) {
+    setState(() {
+      final index = mockBooks.indexWhere((b) => b.id == book.id);
+      if (index != -1) {
+        final bool newFavoriteState = !book.isFavorite;
+        mockBooks[index] = Book(
+          id: book.id,
+          title: book.title,
+          author: book.author,
+          coverUrl: book.coverUrl,
+          synopsis: book.synopsis,
+          status: book.status,
+          generalRating: book.generalRating,
+          userRating: book.userRating,
+          comments: book.comments,
+          currentPage: book.currentPage,
+          currentChapter: book.currentChapter,
+          isFavorite: newFavoriteState,
+          personalNote: book.personalNote,
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Filtered lists of books based on their status and favorite state.
-    // These are re-filtered each time the build method is called to reflect changes.
-    final List<Book> readingBooks =
-        mockBooks.where((book) => book.status == BookStatus.reading).toList();
-    final List<Book> wantToReadBooks =
-        mockBooks.where((book) => book.status == BookStatus.wantToRead).toList();
-    final List<Book> readBooks =
-        mockBooks.where((book) => book.status == BookStatus.read).toList();
-    final List<Book> favoritedBooks =
-        mockBooks.where((book) => book.isFavorite).toList();
+    final List<Book> readingBooks = mockBooks
+        .where((book) => book.status == BookStatus.reading)
+        .toList();
+    final List<Book> wantToReadBooks = mockBooks
+        .where((book) => book.status == BookStatus.wantToRead)
+        .toList();
+    final List<Book> readBooks = mockBooks
+        .where((book) => book.status == BookStatus.read)
+        .toList();
+    final List<Book> favoritedBooks = mockBooks
+        .where((book) => book.isFavorite)
+        .toList();
 
     return Scaffold(
       appBar: AppHeader(
@@ -67,7 +101,6 @@ class _MyBooksScreenState extends State<MyBooksScreen>
     );
   }
 
-  // Helper widget to build the grid of books for each tab.
   Widget _buildBookGrid(List<Book> books) {
     if (books.isEmpty) {
       return const Center(
@@ -88,7 +121,15 @@ class _MyBooksScreenState extends State<MyBooksScreen>
       ),
       itemCount: books.length,
       itemBuilder: (context, index) {
-        return BookCard(book: books[index]);
+        final book = books[index];
+
+        return GestureDetector(
+          onTap: () => _navigateToDetail(book),
+          child: BookCard(
+            book: book,
+            onFavoritePressed: () => _toggleFavorite(book),
+          ),
+        );
       },
     );
   }

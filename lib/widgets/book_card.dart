@@ -1,55 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/models/book.dart';
-import 'package:literary_heaven/screens/book_detail_screen.dart'; // Import BookDetailScreen
 
-// A reusable widget to display a book's information in a card format.
 class BookCard extends StatelessWidget {
   final Book book;
+  final VoidCallback onFavoritePressed;
 
   const BookCard({
     super.key,
     required this.book,
+    required this.onFavoritePressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => BookDetailScreen(book: book),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8.0),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.network(
+            book.coverUrl,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) => Container(
+              color: Colors.grey[300],
+              child: Icon(Icons.book, size: 80, color: Colors.grey[600]),
+            ),
           ),
-        );
-      },
-      child: Card(
-        elevation: 4.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10.0),
-                  topRight: Radius.circular(10.0),
+          Positioned(
+            top: 4,
+            right: 4,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                icon: Icon(
+                  book.isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: book.isFavorite ? Colors.red : Colors.white,
                 ),
-                child: Image.network(
-                  book.coverUrl,
-                  fit: BoxFit.cover,
-                  // Basic error handling for image loading
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Center(
-                      child: Icon(Icons.book, color: Colors.grey, size: 50),
-                    );
-                  },
-                ),
+                onPressed: onFavoritePressed,
+                tooltip: book.isFavorite
+                    ? 'Remover dos Favoritos'
+                    : 'Adicionar aos Favoritos',
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              padding: const EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.black.withOpacity(0.8),
+                    Colors.black.withOpacity(0.0),
+                  ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -58,6 +70,7 @@ class BookCard extends StatelessWidget {
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
+                      color: Colors.white,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -65,18 +78,15 @@ class BookCard extends StatelessWidget {
                   const SizedBox(height: 4.0),
                   Text(
                     book.author,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      color: Colors.grey[600],
-                    ),
+                    style: TextStyle(fontSize: 14.0, color: Colors.grey[300]),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

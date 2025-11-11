@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/models/book.dart';
 import 'package:literary_heaven/data/mock_books.dart';
-import 'package:literary_heaven/models/comment.dart'; // Import Comment model
+import 'package:literary_heaven/models/comment.dart';
 import 'package:literary_heaven/widgets/app_header.dart';
 import 'package:literary_heaven/widgets/comment_card.dart';
-import 'package:literary_heaven/widgets/footer.dart'; // Import CommentCard widget
+import 'package:literary_heaven/widgets/footer.dart';
 
 class BookDetailScreen extends StatefulWidget {
   final Book book;
-
 
   const BookDetailScreen({super.key, required this.book});
 
@@ -20,7 +19,8 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
   late Book _currentBook;
   final TextEditingController _commentController = TextEditingController();
   final TextEditingController _currentPageController = TextEditingController();
-  final TextEditingController _currentChapterController = TextEditingController();
+  final TextEditingController _currentChapterController =
+      TextEditingController();
   final TextEditingController _personalNoteController = TextEditingController();
   double _currentUserRating = 0.0;
 
@@ -43,14 +43,15 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     super.dispose();
   }
 
-  void _updateBook(
-      {BookStatus? newStatus,
-      double? newUserRating,
-      String? newCommentText,
-      bool? newFavorite,
-      int? newCurrentPage,
-      String? newCurrentChapter,
-      String? newPersonalNote}) {
+  void _updateBook({
+    BookStatus? newStatus,
+    double? newUserRating,
+    String? newCommentText,
+    bool? newFavorite,
+    int? newCurrentPage,
+    String? newCurrentChapter,
+    String? newPersonalNote,
+  }) {
     setState(() {
       final index = mockBooks.indexWhere((b) => b.id == _currentBook.id);
       if (index != -1) {
@@ -91,13 +92,19 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-            _currentBook.isFavorite ? 'Added to favorites!' : 'Removed from favorites!'),
+          _currentBook.isFavorite
+              ? 'Added to favorites!'
+              : 'Removed from favorites!',
+        ),
       ),
     );
   }
 
   void _submitRatingAndComment() {
-    _updateBook(newUserRating: _currentUserRating, newCommentText: _commentController.text);
+    _updateBook(
+      newUserRating: _currentUserRating,
+      newCommentText: _commentController.text,
+    );
     _commentController.clear();
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Rating and comment submitted!')),
@@ -106,7 +113,8 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
 
   void _saveProgressAndNote() {
     _updateBook(
-      newCurrentPage: int.tryParse(_currentPageController.text) ?? _currentBook.currentPage,
+      newCurrentPage:
+          int.tryParse(_currentPageController.text) ?? _currentBook.currentPage,
       newCurrentChapter: _currentChapterController.text,
       newPersonalNote: _personalNoteController.text,
     );
@@ -118,10 +126,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppHeader(
-        title: Text(_currentBook.title),
-        showBackButton: true,
-      ),
+      appBar: AppHeader(title: Text(_currentBook.title), showBackButton: true),
       bottomNavigationBar: const AppFooter(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -169,29 +174,39 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
               children: [
                 IconButton(
                   icon: const Icon(Icons.check),
-                  color: _currentBook.status == BookStatus.read ? Colors.green : Colors.grey,
+                  color: _currentBook.status == BookStatus.read
+                      ? Colors.green
+                      : Colors.grey,
                   onPressed: () => _updateBookStatus(BookStatus.read),
                   tooltip: 'Mark as Read',
                 ),
                 IconButton(
                   icon: const Icon(Icons.bookmark_border),
-                  color: _currentBook.status == BookStatus.wantToRead ? Colors.blue : Colors.grey,
+                  color: _currentBook.status == BookStatus.wantToRead
+                      ? Colors.blue
+                      : Colors.grey,
                   onPressed: () => _updateBookStatus(BookStatus.wantToRead),
                   tooltip: 'Mark as Want to Read',
                 ),
                 IconButton(
                   icon: const Icon(Icons.menu_book),
-                  color: _currentBook.status == BookStatus.reading ? Colors.orange : Colors.grey,
+                  color: _currentBook.status == BookStatus.reading
+                      ? Colors.orange
+                      : Colors.grey,
                   onPressed: () => _updateBookStatus(BookStatus.reading),
                   tooltip: 'Mark as Reading',
                 ),
                 IconButton(
                   icon: Icon(
-                    _currentBook.isFavorite ? Icons.favorite : Icons.favorite_border,
+                    _currentBook.isFavorite
+                        ? Icons.favorite
+                        : Icons.favorite_border,
                   ),
                   color: _currentBook.isFavorite ? Colors.red : Colors.grey,
                   onPressed: _toggleFavorite,
-                  tooltip: _currentBook.isFavorite ? 'Remove from Favorites' : 'Add to Favorites',
+                  tooltip: _currentBook.isFavorite
+                      ? 'Remove from Favorites'
+                      : 'Add to Favorites',
                 ),
               ],
             ),
@@ -207,10 +222,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
             const SizedBox(height: 8),
             Text(
               _currentBook.synopsis,
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.black87,
-              ),
+              style: const TextStyle(fontSize: 16, color: Colors.black87),
             ),
             const SizedBox(height: 16),
             if (_currentBook.generalRating > 0)
@@ -354,7 +366,9 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              ..._currentBook.comments.map((comment) => CommentCard(comment: comment)),
+              ..._currentBook.comments.map(
+                (comment) => CommentCard(comment: comment),
+              ),
               const SizedBox(height: 16),
             ],
           ],

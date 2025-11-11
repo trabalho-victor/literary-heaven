@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:literary_heaven/models/user.dart';
 import 'package:literary_heaven/screens/home_screen.dart';
@@ -32,15 +31,11 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () => Navigator.of(context).pop(),
             )
           : null,
-      title: title ??
+      title:
+          title ??
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                "assets/logo.svg",
-                height: 32,
-              ),
-            ],
+            children: [SvgPicture.asset("assets/logo.svg", height: 32)],
           ),
       centerTitle: true,
       actions: [
@@ -69,17 +64,16 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
               case 'my_books':
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyBooksScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => const MyBooksScreen(),
+                  ),
                   (route) => false,
                 );
                 break;
             }
           },
           itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-            const PopupMenuItem<String>(
-              value: 'home',
-              child: Text('Home'),
-            ),
+            const PopupMenuItem<String>(value: 'home', child: Text('Home')),
             const PopupMenuItem<String>(
               value: 'my_books',
               child: Text('My Books'),
