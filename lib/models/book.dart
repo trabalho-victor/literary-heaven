@@ -13,7 +13,8 @@ class Book {
   final String coverUrl;
   final String synopsis;
   final BookStatus status;
-  final double rating;
+  final double generalRating;
+  final double userRating;
   final List<String> notes;
   final int currentPage;
   final String currentChapter;
@@ -26,7 +27,8 @@ class Book {
     required this.coverUrl,
     required this.synopsis,
     required this.status,
-    this.rating = 0.0,
+    this.generalRating = 0.0,
+    this.userRating = 0.0,
     this.notes = const [],
     this.currentPage = 0,
     this.currentChapter = '',

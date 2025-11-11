@@ -12,7 +12,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma misteriosa figura chamada John Galt tenta convencer os líderes da indústria a abandonar suas empresas e se juntar a uma comunidade de artistas e empresários em uma greve.',
     status: BookStatus.reading,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     currentPage: 150,
     currentChapter: 'Capítulo 5',
     isFavorite: false,
@@ -25,7 +26,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Em um futuro distópico, a sociedade é controlada por um regime totalitário que vigia todos os cidadãos e reprime qualquer forma de individualidade.',
     status: BookStatus.reading,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     currentPage: 50,
     currentChapter: 'Parte 1, Capítulo 3',
     isFavorite: false,
@@ -38,7 +40,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma saga épica de fantasia sobre a jornada de um hobbit para destruir um anel mágico e derrotar o Senhor das Trevas.',
     status: BookStatus.wantToRead,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -49,7 +52,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Em um futuro distante, casas nobres lutam pelo controle do planeta deserto de Arrakis, a única fonte da especiaria melange, a substância mais valiosa do universo.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -60,7 +64,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Acompanha as aventuras de Arthur Dent, um homem que é salvo da destruição da Terra por seu amigo Ford Prefect, um pesquisador para o Guia do Mochileiro das Galáxias.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -71,7 +76,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Em uma sociedade futura onde os livros são proibidos, Guy Montag é um bombeiro cuja tarefa é queimar quaisquer livros que encontrar.',
     status: BookStatus.read,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -82,7 +88,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história da família Buendía na cidade fictícia de Macondo, ao longo de sete gerações.',
     status: BookStatus.wantToRead,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -93,7 +100,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Holden Caulfield, um jovem que lida com a alienação e a perda da inocência.',
     status: BookStatus.read,
-    rating: 4.2,
+    generalRating: 4.2,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -104,7 +112,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Elizabeth Bennet, que lida com questões de casamento, moralidade e educação na sociedade aristocrática da Inglaterra.',
     status: BookStatus.reading,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     currentPage: 100,
     currentChapter: 'Capítulo 12',
     isFavorite: false,
@@ -117,7 +126,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história do misterioso milionário Jay Gatsby e sua paixão por Daisy Buchanan.',
     status: BookStatus.read,
-    rating: 4.3,
+    generalRating: 4.3,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -128,7 +138,8 @@ final List<Book> mockBooks = [
     synopsis:
         'As aventuras de um fidalgo que lê tantos romances de cavalaria que perde o juízo e decide se tornar um cavaleiro andante.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -139,7 +150,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Gregor Samsa, que acorda um dia transformado em um inseto monstruoso.',
     status: BookStatus.read,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -150,7 +162,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Atticus Finch, um advogado que defende um homem negro acusado de estuprar uma mulher branca no sul dos Estados Unidos.',
     status: BookStatus.reading,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     currentPage: 200,
     currentChapter: 'Capítulo 20',
     isFavorite: false,
@@ -163,7 +176,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Josef K., que é preso e processado por uma autoridade remota e inacessível, com a natureza de seu crime revelada nem a ele nem ao leitor.',
     status: BookStatus.wantToRead,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -174,7 +188,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Raskólnikov, um estudante pobre que comete um assassinato e lida com as consequências psicológicas de seu ato.',
     status: BookStatus.reading,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     currentPage: 300,
     currentChapter: 'Parte 4, Capítulo 2',
     isFavorite: false,
@@ -187,7 +202,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Meursault, um homem que vive uma vida apática e comete um assassinato sem motivo aparente.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -198,7 +214,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de uma epidemia de peste na cidade de Orã e a luta dos habitantes para sobreviver.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -209,7 +226,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de um jovem que vende sua alma para manter sua juventude e beleza, enquanto seu retrato envelhece e revela seus pecados.',
     status: BookStatus.reading,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     currentPage: 150,
     currentChapter: 'Capítulo 10',
     isFavorite: false,
@@ -222,7 +240,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de amor e vingança entre Catherine Earnshaw e Heathcliff.',
     status: BookStatus.read,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -233,7 +252,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de uma jovem órfã que se torna governanta e se apaixona por seu patrão, o Sr. Rochester.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -243,7 +263,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
     synopsis: 'A obsessiva busca do Capitão Ahab pela baleia branca Moby Dick.',
     status: BookStatus.wantToRead,
-    rating: 4.3,
+    generalRating: 4.3,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -254,7 +275,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um dia na vida de Leopold Bloom em Dublin, em 16 de junho de 1904.',
     status: BookStatus.wantToRead,
-    rating: 4.1,
+    generalRating: 4.1,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -265,7 +287,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma obra monumental sobre a memória, o tempo e a sociedade francesa do final do século XIX e início do século XX.',
     status: BookStatus.wantToRead,
-    rating: 4.2,
+    generalRating: 4.2,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -276,7 +299,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de cinco famílias aristocráticas russas durante a invasão napoleônica.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -287,7 +311,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A trágica história de uma mulher casada que se apaixona por um oficial do exército.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -298,7 +323,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história dos irmãos Dmitri, Ivan e Aliócha Karamazov e o parricídio de seu pai.',
     status: BookStatus.wantToRead,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -309,7 +335,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história do Príncipe Míchkin, um homem bom e ingênuo que é incompreendido pela sociedade.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -320,7 +347,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um romance político que retrata a Rússia pré-revolucionária e a ascensão de ideias niilistas.',
     status: BookStatus.wantToRead,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -331,7 +359,8 @@ final List<Book> mockBooks = [
     synopsis:
         'As reflexões de um homem amargo e ressentido que vive à margem da sociedade.',
     status: BookStatus.read,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -342,7 +371,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de um juiz que, ao enfrentar a morte, reavalia sua vida superficial.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -353,7 +383,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história da família Compson, contada a partir de diferentes perspectivas e fluxos de consciência.',
     status: BookStatus.wantToRead,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -363,7 +394,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
     synopsis: 'A jornada da família Bundren para enterrar a matriarca Addie.',
     status: BookStatus.wantToRead,
-    rating: 4.3,
+    generalRating: 4.3,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -374,7 +406,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Lena Grove, que viaja para o sul dos Estados Unidos em busca do pai de seu filho.',
     status: BookStatus.wantToRead,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -385,7 +418,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A ascensão e queda de Thomas Sutpen, um homem que tenta criar uma dinastia no sul dos Estados Unidos.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -396,7 +430,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A jornada de Marlow pelo rio Congo em busca de Kurtz, um enigmático comerciante de marfim.',
     status: BookStatus.read,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -407,7 +442,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de um jovem oficial da marinha mercante que abandona seu navio em perigo e passa o resto da vida tentando se redimir.',
     status: BookStatus.wantToRead,
-    rating: 4.3,
+    generalRating: 4.3,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -418,7 +454,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história da cidade fictícia de Sulaco, na América do Sul, e a corrupção causada por uma mina de prata.',
     status: BookStatus.wantToRead,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -429,7 +466,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Adolf Verloc, um agente secreto que planeja um atentado terrorista em Londres.',
     status: BookStatus.wantToRead,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -440,7 +478,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um dia na vida de Clarissa Dalloway, uma socialite londrina, enquanto ela prepara uma festa.',
     status: BookStatus.read,
-    rating: 4.3,
+    generalRating: 4.3,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -451,7 +490,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história da família Ramsay e suas visitas a uma ilha na Escócia.',
     status: BookStatus.wantToRead,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -462,7 +502,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de seis amigos, contada através de seus monólogos interiores.',
     status: BookStatus.wantToRead,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -472,7 +513,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
     synopsis: 'A história de um nobre que vive por séculos e muda de sexo.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -483,7 +525,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um ensaio sobre as dificuldades enfrentadas pelas mulheres escritoras ao longo da história.',
     status: BookStatus.read,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -493,7 +536,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
     synopsis: 'Uma análise da opressão das mulheres e um marco do feminismo.',
     status: BookStatus.wantToRead,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -504,7 +548,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Antoine Roquentin, um historiador que experimenta uma sensação de náusea diante da existência.',
     status: BookStatus.read,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -515,7 +560,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma obra fundamental do existencialismo, que explora a natureza da consciência e da liberdade.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -526,7 +572,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um ensaio filosófico sobre o absurdo da vida e a busca por sentido.',
     status: BookStatus.read,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -537,7 +584,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise da revolta como uma resposta ao absurdo da existência.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -548,7 +596,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um poema filosófico que apresenta as ideias de Nietzsche sobre o super-homem, a vontade de poder e o eterno retorno.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -559,7 +608,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma crítica da moralidade tradicional e uma exploração de novas perspectivas filosóficas.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -569,7 +619,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
     synopsis: 'Uma investigação sobre a origem dos conceitos de "bom" e "mau".',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -579,7 +630,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
     synopsis: 'Uma crítica contundente ao cristianismo e à moralidade cristã.',
     status: BookStatus.wantToRead,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -590,7 +642,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A autobiografia intelectual de Nietzsche, escrita pouco antes de seu colapso mental.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -601,7 +654,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um diálogo sobre a justiça, a cidade ideal e a teoria das ideias.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -611,7 +665,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
     synopsis: 'Uma obra sobre a ética, a virtude e a busca pela felicidade.',
     status: BookStatus.wantToRead,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -622,7 +677,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise das diferentes formas de governo e da natureza da cidade-estado.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -633,7 +689,8 @@ final List<Book> mockBooks = [
     synopsis:
         'As reflexões do imperador romano sobre a filosofia estoica e a busca pela serenidade.',
     status: BookStatus.read,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -644,7 +701,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma coleção de cartas sobre a filosofia estoica e a arte de viver.',
     status: BookStatus.read,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -655,7 +713,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um ensaio sobre a importância de aproveitar o tempo e viver uma vida com propósito.',
     status: BookStatus.read,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -666,7 +725,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um tratado político sobre como um governante pode conquistar e manter o poder.',
     status: BookStatus.read,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -677,7 +737,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma obra fundamental da filosofia política, que defende a necessidade de um governo forte para evitar a guerra de todos contra todos.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -688,7 +749,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma obra sobre a origem e os fundamentos da sociedade e do governo.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -699,7 +761,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise crítica do capitalismo e da exploração da classe trabalhadora.',
     status: BookStatus.wantToRead,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -710,7 +773,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A obra fundadora da psicanálise, que explora o significado dos sonhos e o inconsciente.',
     status: BookStatus.wantToRead,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -721,7 +785,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Um ensaio sobre o conflito entre os desejos individuais e as demandas da civilização.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -732,7 +797,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise da origem da religião, da moralidade e da organização social.',
     status: BookStatus.wantToRead,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -742,7 +808,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
     synopsis: 'Uma crítica da religião como uma neurose coletiva.',
     status: BookStatus.wantToRead,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -752,7 +819,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
     synopsis: 'A obra que apresentou a teoria da evolução por seleção natural.',
     status: BookStatus.wantToRead,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -763,7 +831,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise da história da ciência e da forma como as teorias científicas mudam ao longo do tempo.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -774,7 +843,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma introdução à cosmologia e à física teórica, desde o Big Bang até os buracos negros.',
     status: BookStatus.read,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -784,7 +854,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
     synopsis: 'Uma exploração do universo e do nosso lugar nele.',
     status: BookStatus.read,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -795,7 +866,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise da história da humanidade, desde a Idade da Pedra até o século XXI.',
     status: BookStatus.reading,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     currentPage: 250,
     currentChapter: 'Parte 3',
     isFavorite: false,
@@ -808,7 +880,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma exploração do futuro da humanidade e dos desafios que enfrentaremos no século XXI.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -819,7 +892,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise dos principais desafios do nosso tempo, como a inteligência artificial, a mudança climática e a ascensão do nacionalismo.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -829,7 +903,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
     synopsis: 'Uma obra que popularizou a visão da evolução centrada no gene.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -840,7 +915,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma defesa da teoria da evolução por seleção natural e uma crítica ao criacionismo.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -850,7 +926,8 @@ final List<Book> mockBooks = [
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
     synopsis: 'Uma crítica da religião e uma defesa do ateísmo.',
     status: BookStatus.wantToRead,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -861,7 +938,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma exploração do papel do acaso em nossas vidas e da dificuldade que temos em compreendê-lo.',
     status: BookStatus.read,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -872,7 +950,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise dos dois sistemas de pensamento que governam nossa mente: o rápido e intuitivo, e o lento e racional.',
     status: BookStatus.reading,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     currentPage: 100,
     currentChapter: 'Parte 2',
     isFavorite: false,
@@ -885,7 +964,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma exploração da ciência por trás da formação de hábitos e como podemos mudá-los.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -896,7 +976,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise da diferença entre o mindset fixo e o mindset de crescimento e como isso afeta nosso sucesso.',
     status: BookStatus.read,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -907,7 +988,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma exploração da vulnerabilidade, da vergonha e da importância de viver uma vida autêntica.',
     status: BookStatus.read,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -918,7 +1000,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma abordagem contraintuitiva para viver uma vida melhor, focando no que realmente importa.',
     status: BookStatus.read,
-    rating: 4.4,
+    generalRating: 4.4,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -929,7 +1012,8 @@ final List<Book> mockBooks = [
     synopsis:
         'O relato de um psiquiatra que sobreviveu aos campos de concentração nazistas e desenvolveu a logoterapia, uma abordagem baseada na busca por um sentido na vida.',
     status: BookStatus.read,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -940,7 +1024,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma análise da história da América Latina, desde a colonização europeia até os dias atuais, focando na exploração econômica e política.',
     status: BookStatus.wantToRead,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -951,7 +1036,8 @@ final List<Book> mockBooks = [
     synopsis:
         'Uma obra fundamental da pedagogia crítica, que propõe um método de alfabetização que visa à conscientização e à libertação dos oprimidos.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -960,9 +1046,10 @@ final List<Book> mockBooks = [
     author: 'João Guimarães Rosa',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
     synopsis:
-        'A história de Riobaldo, um ex-jagunço que narra suas memórias e reflexões sobre a vida, o amor, a morte e o diabo.',
+        'A história de Riobaldo, um ex-jagunço que narra suas memórias e reflexões sobre a vida, o amor, o diabo.',
     status: BookStatus.wantToRead,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -973,7 +1060,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Bentinho, que narra suas memórias e suspeitas sobre a traição de sua esposa, Capitu.',
     status: BookStatus.read,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -984,7 +1072,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A autobiografia de um defunto, que narra sua vida com ironia e pessimismo.',
     status: BookStatus.read,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -995,7 +1084,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Rubião, que herda a fortuna e a filosofia do "Humanitismo" de seu amigo Quincas Borba.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1006,7 +1096,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história do Dr. Simão Bacamarte, que funda um hospício para estudar a loucura e acaba internando toda a cidade.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1017,7 +1108,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de uma família de retirantes nordestinos que luta para sobreviver à seca e à miséria.',
     status: BookStatus.read,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1028,7 +1120,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Paulo Honório, um homem rude e ambicioso que constrói um império no sertão, mas é consumido pela solidão e pelo ciúme.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1039,7 +1132,8 @@ final List<Book> mockBooks = [
     synopsis:
         'O monólogo interior de Luís da Silva, um funcionário público que vive em um estado de angústia e paranoia.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1050,7 +1144,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de um grupo de meninos de rua que vivem em Salvador e lutam pela sobrevivência.',
     status: BookStatus.read,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1061,7 +1156,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Gabriela, uma retirante que encanta a cidade de Ilhéus com sua beleza e sensualidade.',
     status: BookStatus.read,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1072,7 +1168,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Dona Flor, que se casa novamente após a morte de seu primeiro marido, Vadinho, mas ele retorna como um fantasma.',
     status: BookStatus.read,
-    rating: 4.5,
+    generalRating: 4.5,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1083,7 +1180,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Macabéa, uma jovem nordestina que vive no Rio de Janeiro e busca sua identidade.',
     status: BookStatus.read,
-    rating: 4.8,
+    generalRating: 4.8,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1094,7 +1192,8 @@ final List<Book> mockBooks = [
     synopsis:
         'O monólogo interior de uma mulher que, ao esmagar uma barata, tem uma epifania sobre a vida e a existência.',
     status: BookStatus.wantToRead,
-    rating: 4.7,
+    generalRating: 4.7,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1105,7 +1204,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A história de Joana, desde a infância até a vida adulta, e sua busca por liberdade e autoconhecimento.',
     status: BookStatus.wantToRead,
-    rating: 4.6,
+    generalRating: 4.6,
+    userRating: 0.0,
     isFavorite: false,
   ),
   Book(
@@ -1116,7 +1216,8 @@ final List<Book> mockBooks = [
     synopsis:
         'A saga da família Terra Cambará ao longo de 200 anos da história do Rio Grande do Sul.',
     status: BookStatus.wantToRead,
-    rating: 4.9,
+    generalRating: 4.9,
+    userRating: 0.0,
     isFavorite: false,
   ),
 ];

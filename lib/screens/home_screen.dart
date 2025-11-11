@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
 
     // "Most Evaluated" by sorting by rating in descending order
     final mostEvaluated = List.of(mockBooks)
-      ..sort((a, b) => b.rating.compareTo(a.rating));
+      ..sort((a, b) => b.generalRating.compareTo(a.generalRating));
     final top15MostEvaluated = mostEvaluated.take(15).toList();
 
     // Simulate "Best Sellers" by taking another distinct subset
@@ -47,14 +47,8 @@ class HomeScreen extends StatelessWidget {
               title: 'Most Evaluated',
               books: top15MostEvaluated,
             ),
-            BookCategorySection(
-              title: 'Best Sellers',
-              books: bestSellers,
-            ),
-            BookCategorySection(
-              title: "Editor's Picks",
-              books: editorsPicks,
-            ),
+            BookCategorySection(title: 'Best Sellers', books: bestSellers),
+            BookCategorySection(title: "Editor's Picks", books: editorsPicks),
             const SizedBox(height: 20),
           ],
         ),

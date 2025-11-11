@@ -13,64 +13,73 @@ class BookDetailScreen extends StatefulWidget {
 
 class _BookDetailScreenState extends State<BookDetailScreen> {
   late Book _currentBook;
+  final TextEditingController _commentController = TextEditingController();
+  double _currentUserRating = 0.0;
 
   @override
   void initState() {
     super.initState();
     _currentBook = widget.book;
+    _currentUserRating = _currentBook.userRating;
   }
 
-  void _updateBookStatus(BookStatus newStatus) {
+  @override
+  void dispose() {
+    _commentController.dispose();
+    super.dispose();
+  }
+
+  void _updateBook(
+      {BookStatus? newStatus, double? newUserRating, String? newComment, bool? newFavorite}) {
     setState(() {
-      // Find the book in mockBooks and update its status
       final index = mockBooks.indexWhere((b) => b.id == _currentBook.id);
       if (index != -1) {
+        List<String> updatedNotes = List.from(_currentBook.notes);
+        if (newComment != null && newComment.isNotEmpty) {
+          updatedNotes.add(newComment);
+        }
+
         mockBooks[index] = Book(
           id: _currentBook.id,
           title: _currentBook.title,
           author: _currentBook.author,
           coverUrl: _currentBook.coverUrl,
           synopsis: _currentBook.synopsis,
-          status: newStatus,
-          rating: _currentBook.rating,
-          notes: _currentBook.notes,
+          status: newStatus ?? _currentBook.status,
+          generalRating: _currentBook.generalRating, // General rating remains unchanged
+          userRating: newUserRating ?? _currentBook.userRating,
+          notes: updatedNotes,
           currentPage: _currentBook.currentPage,
           currentChapter: _currentBook.currentChapter,
-          isFavorite: _currentBook.isFavorite,
+          isFavorite: newFavorite ?? _currentBook.isFavorite,
         );
         _currentBook = mockBooks[index]; // Update local state with the modified book
       }
     });
+  }
+
+  void _updateBookStatus(BookStatus newStatus) {
+    _updateBook(newStatus: newStatus);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Book status updated to ${newStatus.name}')),
     );
   }
 
   void _toggleFavorite() {
-    setState(() {
-      final index = mockBooks.indexWhere((b) => b.id == _currentBook.id);
-      if (index != -1) {
-        mockBooks[index] = Book(
-          id: _currentBook.id,
-          title: _currentBook.title,
-          author: _currentBook.author,
-          coverUrl: _currentBook.coverUrl,
-          synopsis: _currentBook.synopsis,
-          status: _currentBook.status,
-          rating: _currentBook.rating,
-          notes: _currentBook.notes,
-          currentPage: _currentBook.currentPage,
-          currentChapter: _currentBook.currentChapter,
-          isFavorite: !_currentBook.isFavorite, // Toggle favorite status
-        );
-        _currentBook = mockBooks[index]; // Update local state with the modified book
-      }
-    });
+    _updateBook(newFavorite: !_currentBook.isFavorite);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
             _currentBook.isFavorite ? 'Added to favorites!' : 'Removed from favorites!'),
       ),
+    );
+  }
+
+  void _submitRatingAndComment() {
+    _updateBook(newUserRating: _currentUserRating, newComment: _commentController.text);
+    _commentController.clear();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Rating and comment submitted!')),
     );
   }
 
@@ -173,14 +182,97 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            if (_currentBook.rating > 0)
-              Text(
-                'Rating: ${_currentBook.rating}/5.0',
-                style: const TextStyle(
-                  fontSize: 16,
+            if (_currentBook.generalRating > 0)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      'General Rating: ',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    Text(
+                      '${_currentBook.generalRating}/5.0',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            const Text(
+              'Your Rating:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            Row(
+              children: List.generate(5, (index) {
+                return IconButton(
+                  icon: Icon(
+                    index < _currentUserRating ? Icons.star : Icons.star_border,
+                    color: Colors.amber,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _currentUserRating = (index + 1).toDouble();
+                    });
+                  },
+                );
+              }),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Add a Comment:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 8),
+            TextField(
+              controller: _commentController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Write your comment here...',
+              ),
+              maxLines: 3,
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: ElevatedButton(
+                onPressed: _submitRatingAndComment,
+                child: const Text('Submit Rating & Comment'),
+              ),
+            ),
+            const SizedBox(height: 16),
+            if (_currentBook.notes.isNotEmpty) ...[
+              const Text(
+                'Comments:',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
               ),
+              const SizedBox(height: 8),
+              ..._currentBook.notes.map((note) => Padding(
+                    padding: const EdgeInsets.only(bottom: 4.0),
+                    child: Text(
+                      '- $note',
+                      style: const TextStyle(fontSize: 16, color: Colors.black87),
+                    ),
+                  )),
+              const SizedBox(height: 16),
+            ],
             if (_currentBook.currentPage > 0 || _currentBook.currentChapter.isNotEmpty)
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
