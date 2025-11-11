@@ -1,14 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/models/user.dart';
+import 'package:literary_heaven/screens/edit_profile_screen.dart';
 import 'package:literary_heaven/screens/login.dart';
 import 'package:literary_heaven/widgets/app_header.dart';
 import 'package:literary_heaven/services/auth_service.dart';
 import 'package:literary_heaven/widgets/footer.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   final User user;
 
   const ProfilePage({super.key, required this.user});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  late User _currentUser;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentUser = widget.user;
+  }
+
+  void _updateUser() {
+    setState(() {
+      _currentUser = AuthService().currentUser!;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +79,7 @@ class ProfilePage extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(14),
                         child: Image.asset(
-                          user.profilePictureUrl ?? "assets/carlos.jpeg",
+                          _currentUser.profilePictureUrl ?? "assets/carlos.jpeg",
                           width: 180,
                           height: 240,
                           fit: BoxFit.cover,
@@ -69,7 +89,7 @@ class ProfilePage extends StatelessWidget {
                     const SizedBox(height: 25),
                     Center(
                       child: Text(
-                        '${user.firstName} ${user.lastName}',
+                        '${_currentUser.firstName} ${_currentUser.lastName}',
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w700,
@@ -79,11 +99,11 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 30),
-                    _infoItem("Email:", user.email),
-                    _infoItem("Username:", user.username),
+                    _infoItem("Email:", _currentUser.email),
+                    _infoItem("Username:", _currentUser.username),
                     _infoItem(
                       "Favorite Genre:",
-                      user.favoriteGenres.join(', '),
+                      _currentUser.favoriteGenres.join(', '),
                     ),
                     _infoItem("Books Read:", "120"),
                     _infoItem("Currently Reading:", "Little Red Riding Hood"),
@@ -95,7 +115,18 @@ class ProfilePage extends StatelessWidget {
                         _profileButton(
                           label: "Edit Profile",
                           color: darkGreen,
-                          onTap: () {},
+                          onTap: () async {
+                            final result = await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    EditProfileScreen(user: _currentUser),
+                              ),
+                            );
+                            if (result == true) {
+                              _updateUser();
+                            }
+                          },
                         ),
                         const SizedBox(width: 16),
                         _profileButton(
