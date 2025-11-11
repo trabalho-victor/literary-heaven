@@ -30,12 +30,7 @@ class _MyLoginState extends State<MyLogin> {
 
       AuthService().currentUser = user;
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ProfilePage(user: user),
-        ),
-      );
+      Navigator.pushReplacementNamed(context, '/home');
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
