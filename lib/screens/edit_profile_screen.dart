@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/models/user.dart';
-import 'package:literary_heaven/services/auth_service.dart';
-import 'package:literary_heaven/data/mock_users.dart';
+import 'package:literary_heaven/services/firestore_service.dart';
+import 'package:provider/provider.dart';
 
 class EditProfileScreen extends StatefulWidget {
-  final User user;
-
-  const EditProfileScreen({super.key, required this.user});
+  const EditProfileScreen({super.key});
 
   @override
   _EditProfileScreenState createState() => _EditProfileScreenState();
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  final FirestoreService _firestoreService = FirestoreService();
   late TextEditingController _firstNameController;
   late TextEditingController _lastNameController;
   late TextEditingController _usernameController;
@@ -21,35 +20,33 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   void initState() {
     super.initState();
-    _firstNameController = TextEditingController(text: widget.user.firstName);
-    _lastNameController = TextEditingController(text: widget.user.lastName);
-    _usernameController = TextEditingController(text: widget.user.username);
-    _favoriteGenresController =
-        TextEditingController(text: widget.user.favoriteGenres.join(', '));
+    final user = Provider.of<User?>(context, listen: false);
+    _firstNameController = TextEditingController(text: user?.firstName ?? '');
+    _lastNameController = TextEditingController(text: user?.lastName ?? '');
+    _usernameController = TextEditingController(text: user?.username ?? '');
+    _favoriteGenresController = TextEditingController(
+      text: user?.favoriteGenres.join(', ') ?? '',
+    );
   }
 
   void _saveProfile() {
-    final updatedUser = {
-      'id': widget.user.id,
-      'firstName': _firstNameController.text,
-      'lastName': _lastNameController.text,
-      'email': widget.user.email,
-      'username': _usernameController.text,
-      'password': 'password123', // In a real app, handle this securely
-      'favoriteGenres': _favoriteGenresController.text
+    final user = Provider.of<User?>(context, listen: false);
+    if (user == null) return;
+
+    final updatedUser = User(
+      id: user.id,
+      firstName: _firstNameController.text,
+      lastName: _lastNameController.text,
+      email: user.email,
+      username: _usernameController.text,
+      favoriteGenres: _favoriteGenresController.text
           .split(',')
           .map((e) => e.trim())
           .toList(),
-      'profilePictureUrl': widget.user.profilePictureUrl,
-    };
+      profilePictureUrl: user.profilePictureUrl,
+    );
 
-    final userIndex =
-        mockUsersData.indexWhere((user) => user['id'] == widget.user.id);
-    if (userIndex != -1) {
-      mockUsersData[userIndex] = updatedUser;
-    }
-
-    AuthService().currentUser = User.fromMap(updatedUser, updatedUser['id'] as String);
+    _firestoreService.updateUser(updatedUser);
 
     Navigator.pop(context, true); // Return true to indicate success
   }
@@ -90,16 +87,21 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               _buildTextField(_usernameController, 'Username'),
               const SizedBox(height: 20),
               _buildTextField(
-                  _favoriteGenresController, 'Favorite Genres (comma separated)'),
+                _favoriteGenresController,
+                'Favorite Genres (comma separated)',
+              ),
               const SizedBox(height: 40),
               Center(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: darkGreen,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 15),
+                      horizontal: 40,
+                      vertical: 15,
+                    ),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                   onPressed: _saveProfile,
                   child: const Text(
@@ -124,9 +126,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       controller: controller,
       decoration: InputDecoration(
         labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
       ),
     );
   }

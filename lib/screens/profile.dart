@@ -1,41 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/models/user.dart';
 import 'package:literary_heaven/screens/edit_profile_screen.dart';
-import 'package:literary_heaven/screens/login.dart';
-import 'package:literary_heaven/widgets/app_header.dart';
 import 'package:literary_heaven/services/auth_service.dart';
+import 'package:literary_heaven/widgets/app_header.dart';
 import 'package:literary_heaven/widgets/footer.dart';
+import 'package:provider/provider.dart';
 
-class ProfilePage extends StatefulWidget {
-  final User user;
-
-  const ProfilePage({super.key, required this.user});
-
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  late User _currentUser;
-
-  @override
-  void initState() {
-    super.initState();
-    _currentUser = widget.user;
-  }
-
-  void _updateUser() {
-    setState(() {
-      _currentUser = AuthService().currentUser!;
-    });
-  }
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User?>(context);
     const darkGreen = Color(0xFF4C6B4F);
     const darkRed = Color(0xFFB63C3C);
     const cream = Color(0xFFF5F4EC);
     const darkText = Color(0xFF2E2D26);
+
+    if (user == null) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
 
     return Scaffold(
       appBar: const AppHeader(),
@@ -79,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(14),
                         child: Image.asset(
-                          _currentUser.profilePictureUrl ?? "assets/carlos.jpeg",
+                          user.profilePictureUrl ?? "assets/carlos.jpeg",
                           width: 180,
                           height: 240,
                           fit: BoxFit.cover,
@@ -89,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     const SizedBox(height: 25),
                     Center(
                       child: Text(
-                        '${_currentUser.firstName} ${_currentUser.lastName}',
+                        '${user.firstName} ${user.lastName}',
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w700,
@@ -99,11 +87,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     const SizedBox(height: 30),
-                    _infoItem("Email:", _currentUser.email),
-                    _infoItem("Username:", _currentUser.username),
+                    _infoItem("Email:", user.email),
+                    _infoItem("Username:", user.username),
                     _infoItem(
                       "Favorite Genre:",
-                      _currentUser.favoriteGenres.join(', '),
+                      user.favoriteGenres.join(', '),
                     ),
                     _infoItem("Books Read:", "120"),
                     _infoItem("Currently Reading:", "Little Red Riding Hood"),
@@ -115,17 +103,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         _profileButton(
                           label: "Edit Profile",
                           color: darkGreen,
-                          onTap: () async {
-                            final result = await Navigator.push(
+                          onTap: () {
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    EditProfileScreen(user: _currentUser),
+                                    const EditProfileScreen(),
                               ),
                             );
-                            if (result == true) {
-                              _updateUser();
-                            }
                           },
                         ),
                         const SizedBox(width: 16),
@@ -133,12 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           label: "Exit",
                           color: darkRed,
                           onTap: () {
-                            AuthService().currentUser = null;
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (context) => const MyLogin()),
-                              (Route<dynamic> route) => false,
-                            );
+                            AuthService().signOut();
                           },
                         ),
                       ],

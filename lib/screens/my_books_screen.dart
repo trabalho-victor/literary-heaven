@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:literary_heaven/data/mock_books.dart';
 import 'package:literary_heaven/models/book.dart';
+import 'package:literary_heaven/services/firestore_service.dart';
 import 'package:literary_heaven/widgets/book_card.dart';
 import 'package:literary_heaven/widgets/app_header.dart';
 import 'package:literary_heaven/widgets/footer.dart';
@@ -16,6 +16,7 @@ class MyBooksScreen extends StatefulWidget {
 class _MyBooksScreenState extends State<MyBooksScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  final FirestoreService _firestoreService = FirestoreService();
 
   @override
   void initState() {
@@ -34,48 +35,14 @@ class _MyBooksScreenState extends State<MyBooksScreen>
       context,
       MaterialPageRoute(builder: (context) => BookDetailScreen(book: book)),
     );
-    setState(() {});
   }
 
   void _toggleFavorite(Book book) {
-    setState(() {
-      final index = mockBooks.indexWhere((b) => b.id == book.id);
-      if (index != -1) {
-        final bool newFavoriteState = !book.isFavorite;
-        mockBooks[index] = Book(
-          id: book.id,
-          title: book.title,
-          author: book.author,
-          coverUrl: book.coverUrl,
-          synopsis: book.synopsis,
-          status: book.status,
-          generalRating: book.generalRating,
-          userRating: book.userRating,
-          comments: book.comments,
-          currentPage: book.currentPage,
-          currentChapter: book.currentChapter,
-          isFavorite: newFavoriteState,
-          personalNote: book.personalNote,
-        );
-      }
-    });
+    _firestoreService.toggleFavorite(book.id, !book.isFavorite);
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<Book> readingBooks = mockBooks
-        .where((book) => book.status == BookStatus.reading)
-        .toList();
-    final List<Book> wantToReadBooks = mockBooks
-        .where((book) => book.status == BookStatus.wantToRead)
-        .toList();
-    final List<Book> readBooks = mockBooks
-        .where((book) => book.status == BookStatus.read)
-        .toList();
-    final List<Book> favoritedBooks = mockBooks
-        .where((book) => book.isFavorite)
-        .toList();
-
     return Scaffold(
       appBar: AppHeader(
         bottom: TabBar(
@@ -89,14 +56,40 @@ class _MyBooksScreenState extends State<MyBooksScreen>
         ),
       ),
       bottomNavigationBar: const AppFooter(),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          _buildBookGrid(readingBooks),
-          _buildBookGrid(wantToReadBooks),
-          _buildBookGrid(readBooks),
-          _buildBookGrid(favoritedBooks),
-        ],
+      body: StreamBuilder<List<Book>>(
+        stream: _firestoreService.getBooks(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          }
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(child: Text('No books found.'));
+          }
+
+          final books = snapshot.data!;
+          final List<Book> readingBooks =
+              books.where((book) => book.status == BookStatus.reading).toList();
+          final List<Book> wantToReadBooks = books
+              .where((book) => book.status == BookStatus.wantToRead)
+              .toList();
+          final List<Book> readBooks =
+              books.where((book) => book.status == BookStatus.read).toList();
+          final List<Book> favoritedBooks =
+              books.where((book) => book.isFavorite).toList();
+
+          return TabBarView(
+            controller: _tabController,
+            children: [
+              _buildBookGrid(readingBooks),
+              _buildBookGrid(wantToReadBooks),
+              _buildBookGrid(readBooks),
+              _buildBookGrid(favoritedBooks),
+            ],
+          );
+        },
       ),
     );
   }

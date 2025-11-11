@@ -1,5 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:literary_heaven/data/mock_users.dart';
+import 'package:literary_heaven/services/auth_service.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({super.key});
@@ -9,11 +10,12 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
+  final AuthService _authService = AuthService();
   final TextEditingController name = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
-  void _register() {
+  void _register() async {
     final userName = name.text;
     final userEmail = email.text;
     final userPassword = password.text;
@@ -28,32 +30,23 @@ class _MyRegisterState extends State<MyRegister> {
       return;
     }
 
-    // Simple name split
-    final nameParts = userName.split(' ');
-    final firstName = nameParts.isNotEmpty ? nameParts.first : '';
-    final lastName = nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '';
-
-    final newUser = {
-      'id': (mockUsersData.length + 1).toString(),
-      'firstName': firstName,
-      'lastName': lastName,
-      'email': userEmail,
-      'username': userEmail.split('@').first, // simple username generation
-      'password': userPassword,
-      'favoriteGenres': <String>[],
-      'profilePictureUrl': 'assets/carlos.jpeg',
-    };
-
-    mockUsersData.add(newUser);
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Registration successful! Please log in.'),
-        backgroundColor: Colors.green,
-      ),
-    );
-
-    Navigator.pushNamed(context, '/login');
+    try {
+      final user = await _authService.createUserWithEmailAndPassword(
+        userName,
+        userEmail,
+        userPassword,
+      );
+      if (user != null) {
+        Navigator.pushReplacementNamed(context, '/home');
+      }
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.message ?? 'An unknown error occurred.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override

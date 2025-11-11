@@ -1,7 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:literary_heaven/data/mock_users.dart';
-import 'package:literary_heaven/models/user.dart';
-import 'package:literary_heaven/screens/profile.dart';
 import 'package:literary_heaven/services/auth_service.dart';
 
 class MyLogin extends StatefulWidget {
@@ -12,28 +10,26 @@ class MyLogin extends StatefulWidget {
 }
 
 class _MyLoginState extends State<MyLogin> {
+  final AuthService _authService = AuthService();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
-  void _login() {
+  void _login() async {
     final userEmail = email.text;
     final userPassword = password.text;
 
     try {
-      final userMap = mockUsersData.firstWhere(
-        (user) =>
-            user['email'] == userEmail && user['password'] == userPassword,
+      final user = await _authService.signInWithEmailAndPassword(
+        userEmail,
+        userPassword,
       );
-
-      final user = User.fromMap(userMap, userMap['id']);
-
-      AuthService().currentUser = user;
-
-      Navigator.pushReplacementNamed(context, '/home');
-    } catch (e) {
+      if (user != null) {
+        Navigator.pushReplacementNamed(context, '/home');
+      }
+    } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Invalid email or password.'),
+        SnackBar(
+          content: Text(e.message ?? 'An unknown error occurred.'),
           backgroundColor: Colors.red,
         ),
       );

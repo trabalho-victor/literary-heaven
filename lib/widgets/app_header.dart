@@ -5,6 +5,7 @@ import 'package:literary_heaven/screens/home_screen.dart';
 import 'package:literary_heaven/screens/my_books_screen.dart';
 import 'package:literary_heaven/screens/profile.dart';
 import 'package:literary_heaven/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   final PreferredSizeWidget? bottom;
@@ -20,7 +21,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final User? currentUser = AuthService().currentUser;
+    final user = Provider.of<User?>(context);
 
     return AppBar(
       backgroundColor: const Color(0xFFF5F4EC),
@@ -51,11 +52,11 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                 );
                 break;
               case 'profile':
-                if (currentUser != null) {
+                if (user != null) {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfilePage(user: currentUser),
+                      builder: (context) => const ProfilePage(),
                     ),
                     (route) => false,
                   );

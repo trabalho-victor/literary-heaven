@@ -7,19 +7,29 @@ class Comment {
     this.isOwn = true, // Default to true for user's own comments
   });
 
-  // Factory constructor to create a Comment from a JSON map
-  factory Comment.fromJson(Map<String, dynamic> json) {
+  // Factory constructor to create a Comment from a map
+  factory Comment.fromMap(Map<String, dynamic> map) {
     return Comment(
-      text: json['text'] as String,
-      isOwn: json['isOwn'] as bool,
+      text: map['text'] as String,
+      isOwn: map['isOwn'] as bool,
     );
   }
 
-  // Method to convert a Comment to a JSON map
-  Map<String, dynamic> toJson() {
+  // Method to convert a Comment to a map
+  Map<String, dynamic> toMap() {
     return {
       'text': text,
       'isOwn': isOwn,
     };
+  }
+
+  Comment copyWith({
+    String? text,
+    bool? isOwn,
+  }) {
+    return Comment(
+      text: text ?? this.text,
+      isOwn: isOwn ?? this.isOwn,
+    );
   }
 }
