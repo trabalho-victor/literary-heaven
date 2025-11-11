@@ -19,6 +19,7 @@ final List<Book> mockBooks = [
     currentChapter: 'Capítulo 5',
     isFavorite: false,
     comments: [Comment(text: 'This is a great book, highly recommend!', isOwn: false)],
+    personalNote: '',
   ),
   Book(
     id: '2',
@@ -34,6 +35,7 @@ final List<Book> mockBooks = [
     currentChapter: 'Parte 1, Capítulo 3',
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '3',
@@ -47,6 +49,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '4',
@@ -60,6 +63,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '5',
@@ -73,6 +77,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '6',
@@ -86,6 +91,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '7',
@@ -99,6 +105,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '8',
@@ -112,6 +119,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '9',
@@ -127,6 +135,7 @@ final List<Book> mockBooks = [
     currentChapter: 'Capítulo 12',
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '10',
@@ -140,6 +149,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '11',
@@ -153,6 +163,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '12',
@@ -166,6 +177,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '13',
@@ -181,6 +193,7 @@ final List<Book> mockBooks = [
     currentChapter: 'Capítulo 20',
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '14',
@@ -194,6 +207,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '15',
@@ -209,6 +223,7 @@ final List<Book> mockBooks = [
     currentChapter: 'Parte 4, Capítulo 2',
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '16',
@@ -222,6 +237,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '17',
@@ -235,6 +251,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '18',
@@ -250,6 +267,7 @@ final List<Book> mockBooks = [
     currentChapter: 'Capítulo 10',
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '19',
@@ -263,6 +281,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '20',
@@ -276,6 +295,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '21',
@@ -288,6 +308,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '22',
@@ -301,6 +322,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '23',
@@ -314,6 +336,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '24',
@@ -327,6 +350,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '25',
@@ -340,6 +364,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '26',
@@ -353,6 +378,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '27',
@@ -366,6 +392,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '28',
@@ -379,6 +406,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '29',
@@ -392,6 +420,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '30',
@@ -405,6 +434,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '31',
@@ -418,6 +448,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '32',
@@ -430,6 +461,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '33',
@@ -443,6 +475,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '34',
@@ -456,6 +489,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '35',
@@ -469,6 +503,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '36',
@@ -482,6 +517,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '37',
@@ -495,6 +531,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '38',
@@ -508,6 +545,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '39',
@@ -521,6 +559,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '40',
@@ -534,6 +573,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '41',
@@ -547,6 +587,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '42',
@@ -559,6 +600,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '43',
@@ -572,6 +614,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '44',
@@ -584,6 +627,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '45',
@@ -597,6 +641,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '46',
@@ -610,6 +655,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '47',
@@ -623,6 +669,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '48',
@@ -636,6 +683,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '49',
@@ -649,6 +697,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '50',
@@ -662,6 +711,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '51',
@@ -674,6 +724,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '52',
@@ -686,6 +737,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '53',
@@ -699,6 +751,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '54',
@@ -712,6 +765,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '55',
@@ -724,6 +778,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '56',
@@ -737,6 +792,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '57',
@@ -750,6 +806,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '58',
@@ -763,6 +820,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '59',
@@ -776,6 +834,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '60',
@@ -789,6 +848,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '61',
@@ -802,6 +862,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '62',
@@ -815,6 +876,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '63',
@@ -828,6 +890,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '64',
@@ -841,6 +904,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '65',
@@ -854,6 +918,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '66',
@@ -867,6 +932,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '67',
@@ -879,6 +945,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '68',
@@ -891,6 +958,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '69',
@@ -904,6 +972,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '70',
@@ -917,6 +986,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '71',
@@ -929,6 +999,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '72',
@@ -944,6 +1015,7 @@ final List<Book> mockBooks = [
     currentChapter: 'Parte 3',
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '73',
@@ -957,6 +1029,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '74',
@@ -970,6 +1043,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '75',
@@ -982,6 +1056,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '76',
@@ -995,6 +1070,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '77',
@@ -1007,6 +1083,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '78',
@@ -1020,6 +1097,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '79',
@@ -1035,6 +1113,7 @@ final List<Book> mockBooks = [
     currentChapter: 'Parte 2',
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '80',
@@ -1048,6 +1127,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '81',
@@ -1061,6 +1141,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '82',
@@ -1074,6 +1155,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '83',
@@ -1087,6 +1169,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '84',
@@ -1100,6 +1183,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '85',
@@ -1113,6 +1197,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '86',
@@ -1126,6 +1211,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '87',
@@ -1139,6 +1225,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '88',
@@ -1152,6 +1239,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '89',
@@ -1165,6 +1253,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '90',
@@ -1178,6 +1267,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '91',
@@ -1191,6 +1281,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '92',
@@ -1204,6 +1295,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '93',
@@ -1217,6 +1309,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '94',
@@ -1230,6 +1323,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '95',
@@ -1243,6 +1337,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '96',
@@ -1256,6 +1351,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '97',
@@ -1269,6 +1365,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '98',
@@ -1282,6 +1379,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '99',
@@ -1295,6 +1393,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '100',
@@ -1308,6 +1407,7 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
   Book(
     id: '101',
@@ -1321,5 +1421,6 @@ final List<Book> mockBooks = [
     userRating: 0.0,
     isFavorite: false,
     comments: const [],
+    personalNote: '',
   ),
 ];

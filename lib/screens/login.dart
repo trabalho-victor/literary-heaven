@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/screens/home_screen.dart';
+import 'package:literary_heaven/screens/my_books_screen.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
@@ -82,19 +83,23 @@ class _MyLoginState extends State<MyLogin> {
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Email",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
-                            prefixIcon: Icon(Icons.email_outlined,
-                                color: Colors.grey.shade700),
+                            hintStyle: TextStyle(color: Colors.grey.shade600),
+                            prefixIcon: Icon(
+                              Icons.email_outlined,
+                              color: Colors.grey.shade700,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide:
-                                  const BorderSide(color: Colors.transparent),
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
+                                color: Colors.grey.shade400,
+                                width: 1.2,
+                              ),
                             ),
                           ),
                         ),
@@ -108,19 +113,23 @@ class _MyLoginState extends State<MyLogin> {
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Password",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
-                            prefixIcon: Icon(Icons.lock_outline,
-                                color: Colors.grey.shade700),
+                            hintStyle: TextStyle(color: Colors.grey.shade600),
+                            prefixIcon: Icon(
+                              Icons.lock_outline,
+                              color: Colors.grey.shade700,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide:
-                                  const BorderSide(color: Colors.transparent),
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
+                                color: Colors.grey.shade400,
+                                width: 1.2,
+                              ),
                             ),
                           ),
                         ),
@@ -143,7 +152,6 @@ class _MyLoginState extends State<MyLogin> {
                         //     ),
                         //   ],
                         // ),
-
                         const SizedBox(height: 25),
 
                         // Botão preto
@@ -153,7 +161,8 @@ class _MyLoginState extends State<MyLogin> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomeScreen(),
+                                //builder: (context) => HomeScreen(),
+                                builder: (context) => MyBooksScreen(),
                               ),
                             );
                           },

@@ -21,6 +21,7 @@ class Book {
   final int currentPage;
   final String currentChapter;
   final bool isFavorite;
+  final String personalNote;
 
   Book({
     required this.id,
@@ -35,5 +36,6 @@ class Book {
     this.currentPage = 0,
     this.currentChapter = '',
     this.isFavorite = false,
+    this.personalNote = '',
   });
 }

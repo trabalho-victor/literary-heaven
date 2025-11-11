@@ -16,6 +16,9 @@ class BookDetailScreen extends StatefulWidget {
 class _BookDetailScreenState extends State<BookDetailScreen> {
   late Book _currentBook;
   final TextEditingController _commentController = TextEditingController();
+  final TextEditingController _currentPageController = TextEditingController();
+  final TextEditingController _currentChapterController = TextEditingController();
+  final TextEditingController _personalNoteController = TextEditingController();
   double _currentUserRating = 0.0;
 
   @override
@@ -23,16 +26,28 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     super.initState();
     _currentBook = widget.book;
     _currentUserRating = _currentBook.userRating;
+    _currentPageController.text = _currentBook.currentPage.toString();
+    _currentChapterController.text = _currentBook.currentChapter;
+    _personalNoteController.text = _currentBook.personalNote;
   }
 
   @override
   void dispose() {
     _commentController.dispose();
+    _currentPageController.dispose();
+    _currentChapterController.dispose();
+    _personalNoteController.dispose();
     super.dispose();
   }
 
   void _updateBook(
-      {BookStatus? newStatus, double? newUserRating, String? newCommentText, bool? newFavorite}) {
+      {BookStatus? newStatus,
+      double? newUserRating,
+      String? newCommentText,
+      bool? newFavorite,
+      int? newCurrentPage,
+      String? newCurrentChapter,
+      String? newPersonalNote}) {
     setState(() {
       final index = mockBooks.indexWhere((b) => b.id == _currentBook.id);
       if (index != -1) {
@@ -51,9 +66,10 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
           generalRating: _currentBook.generalRating,
           userRating: newUserRating ?? _currentBook.userRating,
           comments: updatedComments,
-          currentPage: _currentBook.currentPage,
-          currentChapter: _currentBook.currentChapter,
+          currentPage: newCurrentPage ?? _currentBook.currentPage,
+          currentChapter: newCurrentChapter ?? _currentBook.currentChapter,
           isFavorite: newFavorite ?? _currentBook.isFavorite,
+          personalNote: newPersonalNote ?? _currentBook.personalNote,
         );
         _currentBook = mockBooks[index];
       }
@@ -82,6 +98,17 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     _commentController.clear();
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Rating and comment submitted!')),
+    );
+  }
+
+  void _saveProgressAndNote() {
+    _updateBook(
+      newCurrentPage: int.tryParse(_currentPageController.text) ?? _currentBook.currentPage,
+      newCurrentChapter: _currentChapterController.text,
+      newPersonalNote: _personalNoteController.text,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Progress and personal note saved!')),
     );
   }
 
@@ -232,6 +259,65 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
             ),
             const SizedBox(height: 16),
             const Text(
+              'Current Progress:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _currentPageController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Page',
+                    ),
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: _currentChapterController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Chapter',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Personal Note:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 8),
+            TextField(
+              controller: _personalNoteController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Add your personal note here...',
+              ),
+              maxLines: 3,
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: ElevatedButton(
+                onPressed: _saveProgressAndNote,
+                child: const Text('Save Progress & Note'),
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
               'Add a Comment:',
               style: TextStyle(
                 fontSize: 18,
@@ -269,17 +355,6 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
               ..._currentBook.comments.map((comment) => CommentCard(comment: comment)),
               const SizedBox(height: 16),
             ],
-            if (_currentBook.currentPage > 0 || _currentBook.currentChapter.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(
-                  'Progress: Page ${_currentBook.currentPage}, Chapter ${_currentBook.currentChapter}',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black87,
-                  ),
-                ),
-              ),
           ],
         ),
       ),
