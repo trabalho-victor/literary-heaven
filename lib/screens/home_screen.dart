@@ -7,11 +7,19 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Slicing the mock data for different categories
-    final mostRead = mockBooks.sublist(0, 3);
-    final mostEvaluated = mockBooks.sublist(3, 6);
-    final bestSellers = mockBooks.reversed.toList().sublist(0, 3);
-    final editorsPicks = mockBooks.reversed.toList().sublist(3, 6);
+    // Simulate "Most Read" by taking a distinct subset of books
+    final mostRead = mockBooks.sublist(0, 15);
+
+    // "Most Evaluated" by sorting by rating in descending order
+    final mostEvaluated = List.of(mockBooks)
+      ..sort((a, b) => b.rating.compareTo(a.rating));
+    final top15MostEvaluated = mostEvaluated.take(15).toList();
+
+    // Simulate "Best Sellers" by taking another distinct subset
+    final bestSellers = mockBooks.sublist(15, 30);
+
+    // Simulate "Editor's Picks" by taking another distinct subset
+    final editorsPicks = mockBooks.sublist(30, 45);
 
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +45,7 @@ class HomeScreen extends StatelessWidget {
             ),
             BookCategorySection(
               title: 'Most Evaluated',
-              books: mostEvaluated,
+              books: top15MostEvaluated,
             ),
             BookCategorySection(
               title: 'Best Sellers',

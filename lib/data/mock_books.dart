@@ -9,7 +9,8 @@ final List<Book> mockBooks = [
     title: 'A Revolta de Atlas',
     author: 'Ayn Rand',
     coverUrl: 'https://i.imgur.com/v3n5n8b.jpeg',
-    synopsis: 'Uma misteriosa figura chamada John Galt tenta convencer os líderes da indústria a abandonar suas empresas e se juntar a uma comunidade de artistas e empresários em uma greve.',
+    synopsis:
+        'Uma misteriosa figura chamada John Galt tenta convencer os líderes da indústria a abandonar suas empresas e se juntar a uma comunidade de artistas e empresários em uma greve.',
     status: BookStatus.reading,
     rating: 4.5,
     currentPage: 150,
@@ -20,7 +21,8 @@ final List<Book> mockBooks = [
     title: '1984',
     author: 'George Orwell',
     coverUrl: 'https://i.imgur.com/sJ4f2sC.jpeg',
-    synopsis: 'Em um futuro distópico, a sociedade é controlada por um regime totalitário que vigia todos os cidadãos e reprime qualquer forma de individualidade.',
+    synopsis:
+        'Em um futuro distópico, a sociedade é controlada por um regime totalitário que vigia todos os cidadãos e reprime qualquer forma de individualidade.',
     status: BookStatus.reading,
     rating: 4.8,
     currentPage: 50,
@@ -31,7 +33,8 @@ final List<Book> mockBooks = [
     title: 'O Senhor dos Anéis',
     author: 'J.R.R. Tolkien',
     coverUrl: 'https://i.imgur.com/qcsbVvT.jpeg',
-    synopsis: 'Uma saga épica de fantasia sobre a jornada de um hobbit para destruir um anel mágico e derrotar o Senhor das Trevas.',
+    synopsis:
+        'Uma saga épica de fantasia sobre a jornada de um hobbit para destruir um anel mágico e derrotar o Senhor das Trevas.',
     status: BookStatus.wantToRead,
     rating: 4.9,
   ),
@@ -40,7 +43,8 @@ final List<Book> mockBooks = [
     title: 'Duna',
     author: 'Frank Herbert',
     coverUrl: 'https://i.imgur.com/u8nL5dD.jpeg',
-    synopsis: 'Em um futuro distante, casas nobres lutam pelo controle do planeta deserto de Arrakis, a única fonte da especiaria melange, a substância mais valiosa do universo.',
+    synopsis:
+        'Em um futuro distante, casas nobres lutam pelo controle do planeta deserto de Arrakis, a única fonte da especiaria melange, a substância mais valiosa do universo.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -49,7 +53,8 @@ final List<Book> mockBooks = [
     title: 'O Guia do Mochileiro das Galáxias',
     author: 'Douglas Adams',
     coverUrl: 'https://i.imgur.com/2yv4z3G.jpeg',
-    synopsis: 'Acompanha as aventuras de Arthur Dent, um homem que é salvo da destruição da Terra por seu amigo Ford Prefect, um pesquisador para o Guia do Mochileiro das Galáxias.',
+    synopsis:
+        'Acompanha as aventuras de Arthur Dent, um homem que é salvo da destruição da Terra por seu amigo Ford Prefect, um pesquisador para o Guia do Mochileiro das Galáxias.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -58,7 +63,8 @@ final List<Book> mockBooks = [
     title: 'Fahrenheit 451',
     author: 'Ray Bradbury',
     coverUrl: 'https://i.imgur.com/9vM8fXp.jpeg',
-    synopsis: 'Em uma sociedade futura onde os livros são proibidos, Guy Montag é um bombeiro cuja tarefa é queimar quaisquer livros que encontrar.',
+    synopsis:
+        'Em uma sociedade futura onde os livros são proibidos, Guy Montag é um bombeiro cuja tarefa é queimar quaisquer livros que encontrar.',
     status: BookStatus.read,
     rating: 4.4,
   ),
@@ -67,7 +73,8 @@ final List<Book> mockBooks = [
     title: 'Cem Anos de Solidão',
     author: 'Gabriel García Márquez',
     coverUrl: 'https://i.imgur.com/3gCMT9E.jpeg',
-    synopsis: 'A história da família Buendía na cidade fictícia de Macondo, ao longo de sete gerações.',
+    synopsis:
+        'A história da família Buendía na cidade fictícia de Macondo, ao longo de sete gerações.',
     status: BookStatus.wantToRead,
     rating: 4.8,
   ),
@@ -76,7 +83,8 @@ final List<Book> mockBooks = [
     title: 'O Apanhador no Campo de Centeio',
     author: 'J.D. Salinger',
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
-    synopsis: 'A história de Holden Caulfield, um jovem que lida com a alienação e a perda da inocência.',
+    synopsis:
+        'A história de Holden Caulfield, um jovem que lida com a alienação e a perda da inocência.',
     status: BookStatus.read,
     rating: 4.2,
   ),
@@ -85,7 +93,8 @@ final List<Book> mockBooks = [
     title: 'Orgulho e Preconceito',
     author: 'Jane Austen',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'A história de Elizabeth Bennet, que lida com questões de casamento, moralidade e educação na sociedade aristocrática da Inglaterra.',
+    synopsis:
+        'A história de Elizabeth Bennet, que lida com questões de casamento, moralidade e educação na sociedade aristocrática da Inglaterra.',
     status: BookStatus.reading,
     rating: 4.7,
     currentPage: 100,
@@ -96,7 +105,8 @@ final List<Book> mockBooks = [
     title: 'O Grande Gatsby',
     author: 'F. Scott Fitzgerald',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'A história do misterioso milionário Jay Gatsby e sua paixão por Daisy Buchanan.',
+    synopsis:
+        'A história do misterioso milionário Jay Gatsby e sua paixão por Daisy Buchanan.',
     status: BookStatus.read,
     rating: 4.3,
   ),
@@ -105,7 +115,8 @@ final List<Book> mockBooks = [
     title: 'Dom Quixote',
     author: 'Miguel de Cervantes',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'As aventuras de um fidalgo que lê tantos romances de cavalaria que perde o juízo e decide se tornar um cavaleiro andante.',
+    synopsis:
+        'As aventuras de um fidalgo que lê tantos romances de cavalaria que perde o juízo e decide se tornar um cavaleiro andante.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -114,7 +125,8 @@ final List<Book> mockBooks = [
     title: 'A Metamorfose',
     author: 'Franz Kafka',
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
-    synopsis: 'A história de Gregor Samsa, que acorda um dia transformado em um inseto monstruoso.',
+    synopsis:
+        'A história de Gregor Samsa, que acorda um dia transformado em um inseto monstruoso.',
     status: BookStatus.read,
     rating: 4.4,
   ),
@@ -123,7 +135,8 @@ final List<Book> mockBooks = [
     title: 'O Sol é para Todos',
     author: 'Harper Lee',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'A história de Atticus Finch, um advogado que defende um homem negro acusado de estuprar uma mulher branca no sul dos Estados Unidos.',
+    synopsis:
+        'A história de Atticus Finch, um advogado que defende um homem negro acusado de estuprar uma mulher branca no sul dos Estados Unidos.',
     status: BookStatus.reading,
     rating: 4.9,
     currentPage: 200,
@@ -134,7 +147,8 @@ final List<Book> mockBooks = [
     title: 'O Processo',
     author: 'Franz Kafka',
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
-    synopsis: 'A história de Josef K., que é preso e processado por uma autoridade remota e inacessível, com a natureza de seu crime revelada nem a ele nem ao leitor.',
+    synopsis:
+        'A história de Josef K., que é preso e processado por uma autoridade remota e inacessível, com a natureza de seu crime revelada nem a ele nem ao leitor.',
     status: BookStatus.wantToRead,
     rating: 4.5,
   ),
@@ -143,7 +157,8 @@ final List<Book> mockBooks = [
     title: 'Crime e Castigo',
     author: 'Fiódor Dostoiévski',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
-    synopsis: 'A história de Raskólnikov, um estudante pobre que comete um assassinato e lida com as consequências psicológicas de seu ato.',
+    synopsis:
+        'A história de Raskólnikov, um estudante pobre que comete um assassinato e lida com as consequências psicológicas de seu ato.',
     status: BookStatus.reading,
     rating: 4.8,
     currentPage: 300,
@@ -154,7 +169,8 @@ final List<Book> mockBooks = [
     title: 'O Estrangeiro',
     author: 'Albert Camus',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'A história de Meursault, um homem que vive uma vida apática e comete um assassinato sem motivo aparente.',
+    synopsis:
+        'A história de Meursault, um homem que vive uma vida apática e comete um assassinato sem motivo aparente.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -163,7 +179,8 @@ final List<Book> mockBooks = [
     title: 'A Peste',
     author: 'Albert Camus',
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
-    synopsis: 'A história de uma epidemia de peste na cidade de Orã e a luta dos habitantes para sobreviver.',
+    synopsis:
+        'A história de uma epidemia de peste na cidade de Orã e a luta dos habitantes para sobreviver.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -172,7 +189,8 @@ final List<Book> mockBooks = [
     title: 'O Retrato de Dorian Gray',
     author: 'Oscar Wilde',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'A história de um jovem que vende sua alma para manter sua juventude e beleza, enquanto seu retrato envelhece e revela seus pecados.',
+    synopsis:
+        'A história de um jovem que vende sua alma para manter sua juventude e beleza, enquanto seu retrato envelhece e revela seus pecados.',
     status: BookStatus.reading,
     rating: 4.5,
     currentPage: 150,
@@ -183,7 +201,8 @@ final List<Book> mockBooks = [
     title: 'O Morro dos Ventos Uivantes',
     author: 'Emily Brontë',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'A história de amor e vingança entre Catherine Earnshaw e Heathcliff.',
+    synopsis:
+        'A história de amor e vingança entre Catherine Earnshaw e Heathcliff.',
     status: BookStatus.read,
     rating: 4.4,
   ),
@@ -192,7 +211,8 @@ final List<Book> mockBooks = [
     title: 'Jane Eyre',
     author: 'Charlotte Brontë',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'A história de uma jovem órfã que se torna governanta e se apaixona por seu patrão, o Sr. Rochester.',
+    synopsis:
+        'A história de uma jovem órfã que se torna governanta e se apaixona por seu patrão, o Sr. Rochester.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -210,7 +230,8 @@ final List<Book> mockBooks = [
     title: 'Ulisses',
     author: 'James Joyce',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'Um dia na vida de Leopold Bloom em Dublin, em 16 de junho de 1904.',
+    synopsis:
+        'Um dia na vida de Leopold Bloom em Dublin, em 16 de junho de 1904.',
     status: BookStatus.wantToRead,
     rating: 4.1,
   ),
@@ -219,7 +240,8 @@ final List<Book> mockBooks = [
     title: 'Em Busca do Tempo Perdido',
     author: 'Marcel Proust',
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
-    synopsis: 'Uma obra monumental sobre a memória, o tempo e a sociedade francesa do final do século XIX e início do século XX.',
+    synopsis:
+        'Uma obra monumental sobre a memória, o tempo e a sociedade francesa do final do século XIX e início do século XX.',
     status: BookStatus.wantToRead,
     rating: 4.2,
   ),
@@ -228,7 +250,8 @@ final List<Book> mockBooks = [
     title: 'Guerra e Paz',
     author: 'Liev Tolstói',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
-    synopsis: 'A história de cinco famílias aristocráticas russas durante a invasão napoleônica.',
+    synopsis:
+        'A história de cinco famílias aristocráticas russas durante a invasão napoleônica.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -237,7 +260,8 @@ final List<Book> mockBooks = [
     title: 'Anna Karenina',
     author: 'Liev Tolstói',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'A trágica história de uma mulher casada que se apaixona por um oficial do exército.',
+    synopsis:
+        'A trágica história de uma mulher casada que se apaixona por um oficial do exército.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -246,7 +270,8 @@ final List<Book> mockBooks = [
     title: 'Os Irmãos Karamazov',
     author: 'Fiódor Dostoiévski',
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
-    synopsis: 'A história dos irmãos Dmitri, Ivan e Aliócha Karamazov e o parricídio de seu pai.',
+    synopsis:
+        'A história dos irmãos Dmitri, Ivan e Aliócha Karamazov e o parricídio de seu pai.',
     status: BookStatus.wantToRead,
     rating: 4.9,
   ),
@@ -255,7 +280,8 @@ final List<Book> mockBooks = [
     title: 'O Idiota',
     author: 'Fiódor Dostoiévski',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'A história do Príncipe Míchkin, um homem bom e ingênuo que é incompreendido pela sociedade.',
+    synopsis:
+        'A história do Príncipe Míchkin, um homem bom e ingênuo que é incompreendido pela sociedade.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -264,7 +290,8 @@ final List<Book> mockBooks = [
     title: 'Demônios',
     author: 'Fiódor Dostoiévski',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'Um romance político que retrata a Rússia pré-revolucionária e a ascensão de ideias niilistas.',
+    synopsis:
+        'Um romance político que retrata a Rússia pré-revolucionária e a ascensão de ideias niilistas.',
     status: BookStatus.wantToRead,
     rating: 4.8,
   ),
@@ -273,7 +300,8 @@ final List<Book> mockBooks = [
     title: 'Memórias do Subsolo',
     author: 'Fiódor Dostoiévski',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'As reflexões de um homem amargo e ressentido que vive à margem da sociedade.',
+    synopsis:
+        'As reflexões de um homem amargo e ressentido que vive à margem da sociedade.',
     status: BookStatus.read,
     rating: 4.5,
   ),
@@ -282,7 +310,8 @@ final List<Book> mockBooks = [
     title: 'A Morte de Ivan Ilitch',
     author: 'Liev Tolstói',
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
-    synopsis: 'A história de um juiz que, ao enfrentar a morte, reavalia sua vida superficial.',
+    synopsis:
+        'A história de um juiz que, ao enfrentar a morte, reavalia sua vida superficial.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -291,7 +320,8 @@ final List<Book> mockBooks = [
     title: 'O Som e a Fúria',
     author: 'William Faulkner',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'A história da família Compson, contada a partir de diferentes perspectivas e fluxos de consciência.',
+    synopsis:
+        'A história da família Compson, contada a partir de diferentes perspectivas e fluxos de consciência.',
     status: BookStatus.wantToRead,
     rating: 4.4,
   ),
@@ -305,11 +335,12 @@ final List<Book> mockBooks = [
     rating: 4.3,
   ),
   Book(
-    id '33',
+    id: '33',
     title: 'Luz em Agosto',
     author: 'William Faulkner',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
-    synopsis: 'A história de Lena Grove, que viaja para o sul dos Estados Unidos em busca do pai de seu filho.',
+    synopsis:
+        'A história de Lena Grove, que viaja para o sul dos Estados Unidos em busca do pai de seu filho.',
     status: BookStatus.wantToRead,
     rating: 4.5,
   ),
@@ -318,7 +349,8 @@ final List<Book> mockBooks = [
     title: 'Absalão, Absalão!',
     author: 'William Faulkner',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'A ascensão e queda de Thomas Sutpen, um homem que tenta criar uma dinastia no sul dos Estados Unidos.',
+    synopsis:
+        'A ascensão e queda de Thomas Sutpen, um homem que tenta criar uma dinastia no sul dos Estados Unidos.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -327,7 +359,8 @@ final List<Book> mockBooks = [
     title: 'O Coração das Trevas',
     author: 'Joseph Conrad',
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
-    synopsis: 'A jornada de Marlow pelo rio Congo em busca de Kurtz, um enigmático comerciante de marfim.',
+    synopsis:
+        'A jornada de Marlow pelo rio Congo em busca de Kurtz, um enigmático comerciante de marfim.',
     status: BookStatus.read,
     rating: 4.4,
   ),
@@ -336,7 +369,8 @@ final List<Book> mockBooks = [
     title: 'Lord Jim',
     author: 'Joseph Conrad',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'A história de um jovem oficial da marinha mercante que abandona seu navio em perigo e passa o resto da vida tentando se redimir.',
+    synopsis:
+        'A história de um jovem oficial da marinha mercante que abandona seu navio em perigo e passa o resto da vida tentando se redimir.',
     status: BookStatus.wantToRead,
     rating: 4.3,
   ),
@@ -345,7 +379,8 @@ final List<Book> mockBooks = [
     title: 'Nostromo',
     author: 'Joseph Conrad',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'A história da cidade fictícia de Sulaco, na América do Sul, e a corrupção causada por uma mina de prata.',
+    synopsis:
+        'A história da cidade fictícia de Sulaco, na América do Sul, e a corrupção causada por uma mina de prata.',
     status: BookStatus.wantToRead,
     rating: 4.5,
   ),
@@ -354,7 +389,8 @@ final List<Book> mockBooks = [
     title: 'O Agente Secreto',
     author: 'Joseph Conrad',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'A história de Adolf Verloc, um agente secreto que planeja um atentado terrorista em Londres.',
+    synopsis:
+        'A história de Adolf Verloc, um agente secreto que planeja um atentado terrorista em Londres.',
     status: BookStatus.wantToRead,
     rating: 4.4,
   ),
@@ -363,7 +399,8 @@ final List<Book> mockBooks = [
     title: 'Mrs. Dalloway',
     author: 'Virginia Woolf',
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
-    synopsis: 'Um dia na vida de Clarissa Dalloway, uma socialite londrina, enquanto ela prepara uma festa.',
+    synopsis:
+        'Um dia na vida de Clarissa Dalloway, uma socialite londrina, enquanto ela prepara uma festa.',
     status: BookStatus.read,
     rating: 4.3,
   ),
@@ -372,7 +409,8 @@ final List<Book> mockBooks = [
     title: 'Ao Farol',
     author: 'Virginia Woolf',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'A história da família Ramsay e suas visitas a uma ilha na Escócia.',
+    synopsis:
+        'A história da família Ramsay e suas visitas a uma ilha na Escócia.',
     status: BookStatus.wantToRead,
     rating: 4.5,
   ),
@@ -381,7 +419,8 @@ final List<Book> mockBooks = [
     title: 'As Ondas',
     author: 'Virginia Woolf',
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
-    synopsis: 'A história de seis amigos, contada através de seus monólogos interiores.',
+    synopsis:
+        'A história de seis amigos, contada através de seus monólogos interiores.',
     status: BookStatus.wantToRead,
     rating: 4.4,
   ),
@@ -399,7 +438,8 @@ final List<Book> mockBooks = [
     title: 'Um Teto Todo Seu',
     author: 'Virginia Woolf',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'Um ensaio sobre as dificuldades enfrentadas pelas mulheres escritoras ao longo da história.',
+    synopsis:
+        'Um ensaio sobre as dificuldades enfrentadas pelas mulheres escritoras ao longo da história.',
     status: BookStatus.read,
     rating: 4.7,
   ),
@@ -417,7 +457,8 @@ final List<Book> mockBooks = [
     title: 'A Náusea',
     author: 'Jean-Paul Sartre',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'A história de Antoine Roquentin, um historiador que experimenta uma sensação de náusea diante da existência.',
+    synopsis:
+        'A história de Antoine Roquentin, um historiador que experimenta uma sensação de náusea diante da existência.',
     status: BookStatus.read,
     rating: 4.5,
   ),
@@ -426,7 +467,8 @@ final List<Book> mockBooks = [
     title: 'O Ser e o Nada',
     author: 'Jean-Paul Sartre',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'Uma obra fundamental do existencialismo, que explora a natureza da consciência e da liberdade.',
+    synopsis:
+        'Uma obra fundamental do existencialismo, que explora a natureza da consciência e da liberdade.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -435,7 +477,8 @@ final List<Book> mockBooks = [
     title: 'O Mito de Sísifo',
     author: 'Albert Camus',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'Um ensaio filosófico sobre o absurdo da vida e a busca por sentido.',
+    synopsis:
+        'Um ensaio filosófico sobre o absurdo da vida e a busca por sentido.',
     status: BookStatus.read,
     rating: 4.7,
   ),
@@ -444,7 +487,8 @@ final List<Book> mockBooks = [
     title: 'O Homem Revoltado',
     author: 'Albert Camus',
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
-    synopsis: 'Uma análise da revolta como uma resposta ao absurdo da existência.',
+    synopsis:
+        'Uma análise da revolta como uma resposta ao absurdo da existência.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -453,7 +497,8 @@ final List<Book> mockBooks = [
     title: 'Assim Falou Zaratustra',
     author: 'Friedrich Nietzsche',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'Um poema filosófico que apresenta as ideias de Nietzsche sobre o super-homem, a vontade de poder e o eterno retorno.',
+    synopsis:
+        'Um poema filosófico que apresenta as ideias de Nietzsche sobre o super-homem, a vontade de poder e o eterno retorno.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -462,7 +507,8 @@ final List<Book> mockBooks = [
     title: 'Além do Bem e do Mal',
     author: 'Friedrich Nietzsche',
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
-    synopsis: 'Uma crítica da moralidade tradicional e uma exploração de novas perspectivas filosóficas.',
+    synopsis:
+        'Uma crítica da moralidade tradicional e uma exploração de novas perspectivas filosóficas.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -489,7 +535,8 @@ final List<Book> mockBooks = [
     title: 'Ecce Homo',
     author: 'Friedrich Nietzsche',
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
-    synopsis: 'A autobiografia intelectual de Nietzsche, escrita pouco antes de seu colapso mental.',
+    synopsis:
+        'A autobiografia intelectual de Nietzsche, escrita pouco antes de seu colapso mental.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -498,7 +545,8 @@ final List<Book> mockBooks = [
     title: 'A República',
     author: 'Platão',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'Um diálogo sobre a justiça, a cidade ideal e a teoria das ideias.',
+    synopsis:
+        'Um diálogo sobre a justiça, a cidade ideal e a teoria das ideias.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -516,7 +564,8 @@ final List<Book> mockBooks = [
     title: 'A Política',
     author: 'Aristóteles',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'Uma análise das diferentes formas de governo e da natureza da cidade-estado.',
+    synopsis:
+        'Uma análise das diferentes formas de governo e da natureza da cidade-estado.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -525,7 +574,8 @@ final List<Book> mockBooks = [
     title: 'Meditações',
     author: 'Marco Aurélio',
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
-    synopsis: 'As reflexões do imperador romano sobre a filosofia estoica e a busca pela serenidade.',
+    synopsis:
+        'As reflexões do imperador romano sobre a filosofia estoica e a busca pela serenidade.',
     status: BookStatus.read,
     rating: 4.9,
   ),
@@ -534,7 +584,8 @@ final List<Book> mockBooks = [
     title: 'Cartas de um Estoico',
     author: 'Sêneca',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'Uma coleção de cartas sobre a filosofia estoica e a arte de viver.',
+    synopsis:
+        'Uma coleção de cartas sobre a filosofia estoica e a arte de viver.',
     status: BookStatus.read,
     rating: 4.8,
   ),
@@ -543,7 +594,8 @@ final List<Book> mockBooks = [
     title: 'Sobre a Brevidade da Vida',
     author: 'Sêneca',
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
-    synopsis: 'Um ensaio sobre a importância de aproveitar o tempo e viver uma vida com propósito.',
+    synopsis:
+        'Um ensaio sobre a importância de aproveitar o tempo e viver uma vida com propósito.',
     status: BookStatus.read,
     rating: 4.9,
   ),
@@ -552,7 +604,8 @@ final List<Book> mockBooks = [
     title: 'O Príncipe',
     author: 'Nicolau Maquiavel',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
-    synopsis: 'Um tratado político sobre como um governante pode conquistar e manter o poder.',
+    synopsis:
+        'Um tratado político sobre como um governante pode conquistar e manter o poder.',
     status: BookStatus.read,
     rating: 4.5,
   ),
@@ -561,7 +614,8 @@ final List<Book> mockBooks = [
     title: 'Leviatã',
     author: 'Thomas Hobbes',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'Uma obra fundamental da filosofia política, que defende a necessidade de um governo forte para evitar a guerra de todos contra todos.',
+    synopsis:
+        'Uma obra fundamental da filosofia política, que defende a necessidade de um governo forte para evitar a guerra de todos contra todos.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -570,7 +624,8 @@ final List<Book> mockBooks = [
     title: 'Do Contrato Social',
     author: 'Jean-Jacques Rousseau',
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
-    synopsis: 'Uma obra sobre a origem e os fundamentos da sociedade e do governo.',
+    synopsis:
+        'Uma obra sobre a origem e os fundamentos da sociedade e do governo.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -579,7 +634,8 @@ final List<Book> mockBooks = [
     title: 'O Capital',
     author: 'Karl Marx',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'Uma análise crítica do capitalismo e da exploração da classe trabalhadora.',
+    synopsis:
+        'Uma análise crítica do capitalismo e da exploração da classe trabalhadora.',
     status: BookStatus.wantToRead,
     rating: 4.4,
   ),
@@ -588,7 +644,8 @@ final List<Book> mockBooks = [
     title: 'A Interpretação dos Sonhos',
     author: 'Sigmund Freud',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'A obra fundadora da psicanálise, que explora o significado dos sonhos e o inconsciente.',
+    synopsis:
+        'A obra fundadora da psicanálise, que explora o significado dos sonhos e o inconsciente.',
     status: BookStatus.wantToRead,
     rating: 4.5,
   ),
@@ -597,7 +654,8 @@ final List<Book> mockBooks = [
     title: 'O Mal-Estar na Civilização',
     author: 'Sigmund Freud',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'Um ensaio sobre o conflito entre os desejos individuais e as demandas da civilização.',
+    synopsis:
+        'Um ensaio sobre o conflito entre os desejos individuais e as demandas da civilização.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -606,7 +664,8 @@ final List<Book> mockBooks = [
     title: 'Totem e Tabu',
     author: 'Sigmund Freud',
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
-    synopsis: 'Uma análise da origem da religião, da moralidade e da organização social.',
+    synopsis:
+        'Uma análise da origem da religião, da moralidade e da organização social.',
     status: BookStatus.wantToRead,
     rating: 4.4,
   ),
@@ -633,7 +692,8 @@ final List<Book> mockBooks = [
     title: 'A Estrutura das Revoluções Científicas',
     author: 'Thomas Kuhn',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
-    synopsis: 'Uma análise da história da ciência e da forma como as teorias científicas mudam ao longo do tempo.',
+    synopsis:
+        'Uma análise da história da ciência e da forma como as teorias científicas mudam ao longo do tempo.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -642,7 +702,8 @@ final List<Book> mockBooks = [
     title: 'Uma Breve História do Tempo',
     author: 'Stephen Hawking',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'Uma introdução à cosmologia e à física teórica, desde o Big Bang até os buracos negros.',
+    synopsis:
+        'Uma introdução à cosmologia e à física teórica, desde o Big Bang até os buracos negros.',
     status: BookStatus.read,
     rating: 4.9,
   ),
@@ -660,7 +721,8 @@ final List<Book> mockBooks = [
     title: 'Sapiens: Uma Breve História da Humanidade',
     author: 'Yuval Noah Harari',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'Uma análise da história da humanidade, desde a Idade da Pedra até o século XXI.',
+    synopsis:
+        'Uma análise da história da humanidade, desde a Idade da Pedra até o século XXI.',
     status: BookStatus.reading,
     rating: 4.8,
     currentPage: 250,
@@ -671,7 +733,8 @@ final List<Book> mockBooks = [
     title: 'Homo Deus: Uma Breve História do Amanhã',
     author: 'Yuval Noah Harari',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'Uma exploração do futuro da humanidade e dos desafios que enfrentaremos no século XXI.',
+    synopsis:
+        'Uma exploração do futuro da humanidade e dos desafios que enfrentaremos no século XXI.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -680,7 +743,8 @@ final List<Book> mockBooks = [
     title: '21 Lições para o Século 21',
     author: 'Yuval Noah Harari',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'Uma análise dos principais desafios do nosso tempo, como a inteligência artificial, a mudança climática e a ascensão do nacionalismo.',
+    synopsis:
+        'Uma análise dos principais desafios do nosso tempo, como a inteligência artificial, a mudança climática e a ascensão do nacionalismo.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -698,7 +762,8 @@ final List<Book> mockBooks = [
     title: 'O Relojoeiro Cego',
     author: 'Richard Dawkins',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'Uma defesa da teoria da evolução por seleção natural e uma crítica ao criacionismo.',
+    synopsis:
+        'Uma defesa da teoria da evolução por seleção natural e uma crítica ao criacionismo.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -716,7 +781,8 @@ final List<Book> mockBooks = [
     title: 'O Andar do Bêbado',
     author: 'Leonard Mlodinow',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
-    synopsis: 'Uma exploração do papel do acaso em nossas vidas e da dificuldade que temos em compreendê-lo.',
+    synopsis:
+        'Uma exploração do papel do acaso em nossas vidas e da dificuldade que temos em compreendê-lo.',
     status: BookStatus.read,
     rating: 4.7,
   ),
@@ -725,7 +791,8 @@ final List<Book> mockBooks = [
     title: 'Rápido e Devagar: Duas Formas de Pensar',
     author: 'Daniel Kahneman',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'Uma análise dos dois sistemas de pensamento que governam nossa mente: o rápido e intuitivo, e o lento e racional.',
+    synopsis:
+        'Uma análise dos dois sistemas de pensamento que governam nossa mente: o rápido e intuitivo, e o lento e racional.',
     status: BookStatus.reading,
     rating: 4.8,
     currentPage: 100,
@@ -736,7 +803,8 @@ final List<Book> mockBooks = [
     title: 'O Poder do Hábito',
     author: 'Charles Duhigg',
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
-    synopsis: 'Uma exploração da ciência por trás da formação de hábitos e como podemos mudá-los.',
+    synopsis:
+        'Uma exploração da ciência por trás da formação de hábitos e como podemos mudá-los.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -745,7 +813,8 @@ final List<Book> mockBooks = [
     title: 'Mindset: A Nova Psicologia do Sucesso',
     author: 'Carol S. Dweck',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'Uma análise da diferença entre o mindset fixo e o mindset de crescimento e como isso afeta nosso sucesso.',
+    synopsis:
+        'Uma análise da diferença entre o mindset fixo e o mindset de crescimento e como isso afeta nosso sucesso.',
     status: BookStatus.read,
     rating: 4.7,
   ),
@@ -754,7 +823,8 @@ final List<Book> mockBooks = [
     title: 'A Coragem de Ser Imperfeito',
     author: 'Brené Brown',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'Uma exploração da vulnerabilidade, da vergonha e da importância de viver uma vida autêntica.',
+    synopsis:
+        'Uma exploração da vulnerabilidade, da vergonha e da importância de viver uma vida autêntica.',
     status: BookStatus.read,
     rating: 4.8,
   ),
@@ -763,7 +833,8 @@ final List<Book> mockBooks = [
     title: 'A Sutil Arte de Ligar o F*da-se',
     author: 'Mark Manson',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'Uma abordagem contraintuitiva para viver uma vida melhor, focando no que realmente importa.',
+    synopsis:
+        'Uma abordagem contraintuitiva para viver uma vida melhor, focando no que realmente importa.',
     status: BookStatus.read,
     rating: 4.4,
   ),
@@ -772,7 +843,8 @@ final List<Book> mockBooks = [
     title: 'O Homem em Busca de um Sentido',
     author: 'Viktor E. Frankl',
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
-    synopsis: 'O relato de um psiquiatra que sobreviveu aos campos de concentração nazistas e desenvolveu a logoterapia, uma abordagem baseada na busca por um sentido na vida.',
+    synopsis:
+        'O relato de um psiquiatra que sobreviveu aos campos de concentração nazistas e desenvolveu a logoterapia, uma abordagem baseada na busca por um sentido na vida.',
     status: BookStatus.read,
     rating: 4.9,
   ),
@@ -781,7 +853,8 @@ final List<Book> mockBooks = [
     title: 'As Veias Abertas da América Latina',
     author: 'Eduardo Galeano',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'Uma análise da história da América Latina, desde a colonização europeia até os dias atuais, focando na exploração econômica e política.',
+    synopsis:
+        'Uma análise da história da América Latina, desde a colonização europeia até os dias atuais, focando na exploração econômica e política.',
     status: BookStatus.wantToRead,
     rating: 4.8,
   ),
@@ -790,7 +863,8 @@ final List<Book> mockBooks = [
     title: 'Pedagogia do Oprimido',
     author: 'Paulo Freire',
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
-    synopsis: 'Uma obra fundamental da pedagogia crítica, que propõe um método de alfabetização que visa à conscientização e à libertação dos oprimidos.',
+    synopsis:
+        'Uma obra fundamental da pedagogia crítica, que propõe um método de alfabetização que visa à conscientização e à libertação dos oprimidos.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -799,7 +873,8 @@ final List<Book> mockBooks = [
     title: 'Grande Sertão: Veredas',
     author: 'João Guimarães Rosa',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
-    synopsis: 'A história de Riobaldo, um ex-jagunço que narra suas memórias e reflexões sobre a vida, o amor, a morte e o diabo.',
+    synopsis:
+        'A história de Riobaldo, um ex-jagunço que narra suas memórias e reflexões sobre a vida, o amor, a morte e o diabo.',
     status: BookStatus.wantToRead,
     rating: 4.9,
   ),
@@ -808,7 +883,8 @@ final List<Book> mockBooks = [
     title: 'Dom Casmurro',
     author: 'Machado de Assis',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'A história de Bentinho, que narra suas memórias e suspeitas sobre a traição de sua esposa, Capitu.',
+    synopsis:
+        'A história de Bentinho, que narra suas memórias e suspeitas sobre a traição de sua esposa, Capitu.',
     status: BookStatus.read,
     rating: 4.8,
   ),
@@ -817,7 +893,8 @@ final List<Book> mockBooks = [
     title: 'Memórias Póstumas de Brás Cubas',
     author: 'Machado de Assis',
     coverUrl: 'https://iimgur.com/9g8e6Z5.jpeg',
-    synopsis: 'A autobiografia de um defunto, que narra sua vida com ironia e pessimismo.',
+    synopsis:
+        'A autobiografia de um defunto, que narra sua vida com ironia e pessimismo.',
     status: BookStatus.read,
     rating: 4.9,
   ),
@@ -826,7 +903,8 @@ final List<Book> mockBooks = [
     title: 'Quincas Borba',
     author: 'Machado de Assis',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'A história de Rubião, que herda a fortuna e a filosofia do "Humanitismo" de seu amigo Quincas Borba.',
+    synopsis:
+        'A história de Rubião, que herda a fortuna e a filosofia do "Humanitismo" de seu amigo Quincas Borba.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -835,7 +913,8 @@ final List<Book> mockBooks = [
     title: 'O Alienista',
     author: 'Machado de Assis',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'A história do Dr. Simão Bacamarte, que funda um hospício para estudar a loucura e acaba internando toda a cidade.',
+    synopsis:
+        'A história do Dr. Simão Bacamarte, que funda um hospício para estudar a loucura e acaba internando toda a cidade.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -844,7 +923,8 @@ final List<Book> mockBooks = [
     title: 'Vidas Secas',
     author: 'Graciliano Ramos',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'A história de uma família de retirantes nordestinos que luta para sobreviver à seca e à miséria.',
+    synopsis:
+        'A história de uma família de retirantes nordestinos que luta para sobreviver à seca e à miséria.',
     status: BookStatus.read,
     rating: 4.8,
   ),
@@ -853,7 +933,8 @@ final List<Book> mockBooks = [
     title: 'São Bernardo',
     author: 'Graciliano Ramos',
     coverUrl: 'https://i.imgur.com/4fK8z7v.jpeg',
-    synopsis: 'A história de Paulo Honório, um homem rude e ambicioso que constrói um império no sertão, mas é consumido pela solidão e pelo ciúme.',
+    synopsis:
+        'A história de Paulo Honório, um homem rude e ambicioso que constrói um império no sertão, mas é consumido pela solidão e pelo ciúme.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -862,7 +943,8 @@ final List<Book> mockBooks = [
     title: 'Angústia',
     author: 'Graciliano Ramos',
     coverUrl: 'https://i.imgur.com/8hN7z3B.jpeg',
-    synopsis: 'O monólogo interior de Luís da Silva, um funcionário público que vive em um estado de angústia e paranoia.',
+    synopsis:
+        'O monólogo interior de Luís da Silva, um funcionário público que vive em um estado de angústia e paranoia.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -871,7 +953,8 @@ final List<Book> mockBooks = [
     title: 'Capitães da Areia',
     author: 'Jorge Amado',
     coverUrl: 'https://i.imgur.com/2bV6z3f.jpeg',
-    synopsis: 'A história de um grupo de meninos de rua que vivem em Salvador e lutam pela sobrevivência.',
+    synopsis:
+        'A história de um grupo de meninos de rua que vivem em Salvador e lutam pela sobrevivência.',
     status: BookStatus.read,
     rating: 4.7,
   ),
@@ -880,7 +963,8 @@ final List<Book> mockBooks = [
     title: 'Gabriela, Cravo e Canela',
     author: 'Jorge Amado',
     coverUrl: 'https://i.imgur.com/7hN8z3B.jpeg',
-    synopsis: 'A história de Gabriela, uma retirante que encanta a cidade de Ilhéus com sua beleza e sensualidade.',
+    synopsis:
+        'A história de Gabriela, uma retirante que encanta a cidade de Ilhéus com sua beleza e sensualidade.',
     status: BookStatus.read,
     rating: 4.6,
   ),
@@ -889,7 +973,8 @@ final List<Book> mockBooks = [
     title: 'Dona Flor e Seus Dois Maridos',
     author: 'Jorge Amado',
     coverUrl: 'https://i.imgur.com/6gCMT9E.jpeg',
-    synopsis: 'A história de Dona Flor, que se casa novamente após a morte de seu primeiro marido, Vadinho, mas ele retorna como um fantasma.',
+    synopsis:
+        'A história de Dona Flor, que se casa novamente após a morte de seu primeiro marido, Vadinho, mas ele retorna como um fantasma.',
     status: BookStatus.read,
     rating: 4.5,
   ),
@@ -898,7 +983,8 @@ final List<Book> mockBooks = [
     title: 'A Hora da Estrela',
     author: 'Clarice Lispector',
     coverUrl: 'https://i.imgur.com/9g8e6Z5.jpeg',
-    synopsis: 'A história de Macabéa, uma jovem nordestina que vive no Rio de Janeiro e busca sua identidade.',
+    synopsis:
+        'A história de Macabéa, uma jovem nordestina que vive no Rio de Janeiro e busca sua identidade.',
     status: BookStatus.read,
     rating: 4.8,
   ),
@@ -907,7 +993,8 @@ final List<Book> mockBooks = [
     title: 'A Paixão Segundo G.H.',
     author: 'Clarice Lispector',
     coverUrl: 'https://i.imgur.com/6h2E2f2.jpeg',
-    synopsis: 'O monólogo interior de uma mulher que, ao esmagar uma barata, tem uma epifania sobre a vida e a existência.',
+    synopsis:
+        'O monólogo interior de uma mulher que, ao esmagar uma barata, tem uma epifania sobre a vida e a existência.',
     status: BookStatus.wantToRead,
     rating: 4.7,
   ),
@@ -916,7 +1003,8 @@ final List<Book> mockBooks = [
     title: 'Perto do Coração Selvagem',
     author: 'Clarice Lispector',
     coverUrl: 'https://i.imgur.com/7j3kL9d.jpeg',
-    synopsis: 'A história de Joana, desde a infância até a vida adulta, e sua busca por liberdade e autoconhecimento.',
+    synopsis:
+        'A história de Joana, desde a infância até a vida adulta, e sua busca por liberdade e autoconhecimento.',
     status: BookStatus.wantToRead,
     rating: 4.6,
   ),
@@ -925,7 +1013,8 @@ final List<Book> mockBooks = [
     title: 'O Tempo e o Vento',
     author: 'Erico Verissimo',
     coverUrl: 'https://i.imgur.com/5yL9Y7X.jpeg',
-    synopsis: 'A saga da família Terra Cambará ao longo de 200 anos da história do Rio Grande do Sul.',
+    synopsis:
+        'A saga da família Terra Cambará ao longo de 200 anos da história do Rio Grande do Sul.',
     status: BookStatus.wantToRead,
     rating: 4.9,
   ),
