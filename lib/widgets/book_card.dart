@@ -19,13 +19,15 @@ class BookCard extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.network(
-            book.coverUrl,
+          Image.asset(
+            'assets/book_cover_placeholder.jpg',
             fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => Container(
-              color: Colors.grey[300],
-              child: Icon(Icons.book, size: 80, color: Colors.grey[600]),
-            ),
+            // Basic error handling for image loading
+            errorBuilder: (context, error, stackTrace) {
+              return const Center(
+                child: Icon(Icons.book, color: Colors.grey, size: 80),
+              );
+            },
           ),
           Positioned(
             top: 4,

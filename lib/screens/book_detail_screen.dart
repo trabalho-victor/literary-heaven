@@ -54,9 +54,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          !book.isFavorite
-              ? 'Added to favorites!'
-              : 'Removed from favorites!',
+          !book.isFavorite ? 'Added to favorites!' : 'Removed from favorites!',
         ),
       ),
     );
@@ -68,7 +66,9 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     }
     if (_commentController.text.isNotEmpty) {
       _firestoreService.addComment(
-          book.id, Comment(text: _commentController.text, isOwn: true));
+        book.id,
+        Comment(text: _commentController.text, isOwn: true),
+      );
     }
     _commentController.clear();
     ScaffoldMessenger.of(context).showSnackBar(
@@ -117,17 +117,15 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                 Center(
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(
-                      book.coverUrl,
-                      height: 250,
+                    child: Image.asset(
+                      'assets/book_cover_placeholder.jpg',
                       fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) => Container(
-                        height: 250,
-                        width: 160,
-                        color: Colors.grey[300],
-                        child:
-                            Icon(Icons.book, size: 80, color: Colors.grey[600]),
-                      ),
+                      // Basic error handling for image loading
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Center(
+                          child: Icon(Icons.book, color: Colors.grey, size: 80),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -181,7 +179,9 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                     ),
                     IconButton(
                       icon: Icon(
-                        book.isFavorite ? Icons.favorite : Icons.favorite_border,
+                        book.isFavorite
+                            ? Icons.favorite
+                            : Icons.favorite_border,
                       ),
                       color: book.isFavorite ? Colors.red : Colors.grey,
                       onPressed: () => _toggleFavorite(book),
