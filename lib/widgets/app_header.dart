@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:literary_heaven/models/user.dart';
 import 'package:literary_heaven/screens/home_screen.dart';
 import 'package:literary_heaven/screens/my_books_screen.dart';
@@ -23,6 +23,17 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final User? currentUser = AuthService().currentUser;
 
+    final logo = Text(
+      'Literary Heaven',
+      style: GoogleFonts.merriweather(
+        color: const Color(0xFF2D5016),
+        fontSize: 22,
+        fontWeight: FontWeight.bold,
+      ),
+      softWrap: false,
+      overflow: TextOverflow.ellipsis,
+    );
+
     return AppBar(
       backgroundColor: const Color(0xFFF5F4EC),
       elevation: 1,
@@ -33,18 +44,9 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
             )
           : Padding(
               padding: const EdgeInsets.only(left: 16.0),
-              child: SvgPicture.asset(
-                "assets/logo.svg",
-                height: logoHeight,
-              ),
+              child: Center(child: logo),
             ),
-      title: title ??
-          (showBackButton
-              ? SvgPicture.asset(
-                  "assets/logo.svg",
-                  height: logoHeight,
-                )
-              : null),
+      title: title ?? (showBackButton ? logo : null),
       centerTitle: true,
       actions: [
         PopupMenuButton<String>(

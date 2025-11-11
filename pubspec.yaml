@@ -45,6 +45,7 @@ dependencies:
   http: ^0.13.4
   hive:
   hive_flutter:
+  google_fonts: ^4.0.4
 
 dev_dependencies:
   flutter_test:
