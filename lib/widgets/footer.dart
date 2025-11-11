@@ -36,7 +36,10 @@ class AppFooter extends StatelessWidget {
           ),
           Row(
             children: [
-              _footerTextLink(text: 'Privacy Policy', onTap: () {}),
+              _footerTextLink(
+                text: 'Privacy Policy',
+                onTap: () => Navigator.pushNamed(context, '/privacy-policy'),
+              ),
               const SizedBox(width: 20),
               _footerTextLink(
                 text: 'Contact',
