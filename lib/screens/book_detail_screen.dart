@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/models/book.dart';
-import 'package:literary_heaven/data/mock_books.dart'; // Import mock_books to update status
+import 'package:literary_heaven/data/mock_books.dart';
+import 'package:literary_heaven/models/comment.dart'; // Import Comment model
+import 'package:literary_heaven/widgets/comment_card.dart'; // Import CommentCard widget
 
 class BookDetailScreen extends StatefulWidget {
   final Book book;
@@ -30,13 +32,13 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
   }
 
   void _updateBook(
-      {BookStatus? newStatus, double? newUserRating, String? newComment, bool? newFavorite}) {
+      {BookStatus? newStatus, double? newUserRating, String? newCommentText, bool? newFavorite}) {
     setState(() {
       final index = mockBooks.indexWhere((b) => b.id == _currentBook.id);
       if (index != -1) {
-        List<String> updatedNotes = List.from(_currentBook.notes);
-        if (newComment != null && newComment.isNotEmpty) {
-          updatedNotes.add(newComment);
+        List<Comment> updatedComments = List.from(_currentBook.comments);
+        if (newCommentText != null && newCommentText.isNotEmpty) {
+          updatedComments.add(Comment(text: newCommentText, isOwn: true));
         }
 
         mockBooks[index] = Book(
@@ -46,14 +48,14 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
           coverUrl: _currentBook.coverUrl,
           synopsis: _currentBook.synopsis,
           status: newStatus ?? _currentBook.status,
-          generalRating: _currentBook.generalRating, // General rating remains unchanged
+          generalRating: _currentBook.generalRating,
           userRating: newUserRating ?? _currentBook.userRating,
-          notes: updatedNotes,
+          comments: updatedComments,
           currentPage: _currentBook.currentPage,
           currentChapter: _currentBook.currentChapter,
           isFavorite: newFavorite ?? _currentBook.isFavorite,
         );
-        _currentBook = mockBooks[index]; // Update local state with the modified book
+        _currentBook = mockBooks[index];
       }
     });
   }
@@ -76,7 +78,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
   }
 
   void _submitRatingAndComment() {
-    _updateBook(newUserRating: _currentUserRating, newComment: _commentController.text);
+    _updateBook(newUserRating: _currentUserRating, newCommentText: _commentController.text);
     _commentController.clear();
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Rating and comment submitted!')),
@@ -254,7 +256,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            if (_currentBook.notes.isNotEmpty) ...[
+            if (_currentBook.comments.isNotEmpty) ...[
               const Text(
                 'Comments:',
                 style: TextStyle(
@@ -264,13 +266,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              ..._currentBook.notes.map((note) => Padding(
-                    padding: const EdgeInsets.only(bottom: 4.0),
-                    child: Text(
-                      '- $note',
-                      style: const TextStyle(fontSize: 16, color: Colors.black87),
-                    ),
-                  )),
+              ..._currentBook.comments.map((comment) => CommentCard(comment: comment)),
               const SizedBox(height: 16),
             ],
             if (_currentBook.currentPage > 0 || _currentBook.currentChapter.isNotEmpty)
