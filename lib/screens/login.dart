@@ -1,48 +1,86 @@
 import 'package:flutter/material.dart';
-import 'package:literary_heaven/data/mock_users.dart';
+import 'package:firebase_auth/firebase_auth.dart' as fb;
 import 'package:literary_heaven/models/user.dart';
 import 'package:literary_heaven/screens/profile.dart';
-import 'package:literary_heaven/services/auth_service.dart';
-import 'package:literary_heaven/widgets/footer.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
-
 
   @override
   State<MyLogin> createState() => _MyLoginState();
 }
 
 class _MyLoginState extends State<MyLogin> {
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
 
-  void _login() {
-    final userEmail = email.text;
-    final userPassword = password.text;
+  bool _loading = false;
+
+  Future<void> _login() async {
+    final userEmail = email.text.trim();
+    final userPassword = password.text.trim();
+
+    if (userEmail.isEmpty || userPassword.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter email and password.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
 
     try {
-      final userMap = mockUsersData.firstWhere(
-        (user) => user['email'] == userEmail && user['password'] == userPassword,
+      setState(() => _loading = true);
+
+      fb.UserCredential result = await fb.FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: userEmail, password: userPassword);
+
+      fb.User? firebaseUser = result.user;
+      if (firebaseUser == null) throw Exception("User is null");
+
+      // Criar um User local (modelo do app)
+      // Como o Firebase não tem firstName, lastName, username e favoriteGenres,
+      // deixamos padronizado. Depois você pode buscar esses dados do Firestore.
+      final appUser = User(
+        id: firebaseUser.uid,
+        firstName: firebaseUser.displayName?.split(" ").first ?? '',
+        lastName: firebaseUser.displayName?.split(" ").skip(1).join(" ") ?? '',
+        email: firebaseUser.email ?? '',
+        username: firebaseUser.email?.split("@").first ?? '',
+        favoriteGenres: [],
+        profilePictureUrl: firebaseUser.photoURL,
       );
-
-      final user = User.fromMap(userMap, userMap['id']);
-
-      AuthService().currentUser = user;
 
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => ProfilePage(user: user),
+          builder: (context) => ProfilePage(user: appUser),
         ),
+      );
+    } on fb.FirebaseAuthException catch (e) {
+      String message = 'Login failed.';
+
+      if (e.code == 'user-not-found') {
+        message = 'No user found with this email.';
+      } else if (e.code == 'wrong-password') {
+        message = 'Incorrect password.';
+      } else if (e.code == 'invalid-email') {
+        message = 'Invalid email format.';
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message), backgroundColor: Colors.red),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Invalid email or password.'),
+          content: Text('Unexpected error occurred.'),
           backgroundColor: Colors.red,
         ),
       );
+    } finally {
+      setState(() => _loading = false);
     }
   }
 
@@ -51,17 +89,15 @@ class _MyLoginState extends State<MyLogin> {
     return Scaffold(
       body: Stack(
         children: [
-          // Imagem de fundo
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/fundo.png"),
-                fit: BoxFit.cover, // cobre toda a tela
+                fit: BoxFit.cover,
               ),
             ),
           ),
 
-          // Gradiente branco sutil por cima da imagem
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -75,7 +111,6 @@ class _MyLoginState extends State<MyLogin> {
             ),
           ),
 
-          // Conteúdo da tela
           Center(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
@@ -93,7 +128,6 @@ class _MyLoginState extends State<MyLogin> {
                   ),
                   const SizedBox(height: 40),
 
-                  // Card branco com sombra suave
                   Container(
                     padding: const EdgeInsets.all(25),
                     decoration: BoxDecoration(
@@ -116,23 +150,13 @@ class _MyLoginState extends State<MyLogin> {
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Email",
-                            hintStyle: TextStyle(color: Colors.grey.shade600),
                             prefixIcon: Icon(
                               Icons.email_outlined,
                               color: Colors.grey.shade700,
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                color: Colors.grey.shade400,
-                                width: 1.2,
-                              ),
+                              borderSide: BorderSide.none,
                             ),
                           ),
                         ),
@@ -146,50 +170,21 @@ class _MyLoginState extends State<MyLogin> {
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Password",
-                            hintStyle: TextStyle(color: Colors.grey.shade600),
                             prefixIcon: Icon(
                               Icons.lock_outline,
                               color: Colors.grey.shade700,
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                color: Colors.grey.shade400,
-                                width: 1.2,
-                              ),
+                              borderSide: BorderSide.none,
                             ),
                           ),
                         ),
 
-                        const SizedBox(height: 15),
-
-                        // Removed "Remember Me" checkbox as Hive is removed
-                        // Row(
-                        //   children: [
-                        //     Checkbox(
-                        //       activeColor: Colors.black,
-                        //       value: isChecked,
-                        //       onChanged: (value) {
-                        //         setState(() => isChecked = value!);
-                        //       },
-                        //     ),
-                        //     const Text(
-                        //       "Remember Me",
-                        //       style: TextStyle(color: Colors.black54),
-                        //     ),
-                        //   ],
-                        // ),
                         const SizedBox(height: 25),
 
-                        // Botão preto
                         GestureDetector(
-                          onTap: _login,
+                          onTap: _loading ? null : _login,
                           child: Container(
                             width: double.infinity,
                             padding: const EdgeInsets.symmetric(vertical: 14),
@@ -204,15 +199,19 @@ class _MyLoginState extends State<MyLogin> {
                                 ),
                               ],
                             ),
-                            child: const Center(
-                              child: Text(
-                                "Log In",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
+                            child: Center(
+                              child: _loading
+                                  ? const CircularProgressIndicator(
+                                      color: Colors.white,
+                                    )
+                                  : const Text(
+                                      "Log In",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
                             ),
                           ),
                         ),

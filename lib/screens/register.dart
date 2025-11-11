@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:literary_heaven/data/mock_users.dart';
-import 'package:literary_heaven/widgets/footer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({super.key});
@@ -14,10 +13,10 @@ class _MyRegisterState extends State<MyRegister> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
-  void _register() {
-    final userName = name.text;
-    final userEmail = email.text;
-    final userPassword = password.text;
+  Future<void> _register() async {
+    final userName = name.text.trim();
+    final userEmail = email.text.trim();
+    final userPassword = password.text.trim();
 
     if (userName.isEmpty || userEmail.isEmpty || userPassword.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -29,32 +28,57 @@ class _MyRegisterState extends State<MyRegister> {
       return;
     }
 
-    // Simple name split
-    final nameParts = userName.split(' ');
-    final firstName = nameParts.isNotEmpty ? nameParts.first : '';
-    final lastName = nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '';
+    // Divide o nome em primeiro nome e sobrenome
+    final parts = userName.split(" ");
+    final firstName = parts.isNotEmpty ? parts.first : "";
+    final lastName = parts.length > 1 ? parts.sublist(1).join(" ") : "";
 
-    final newUser = {
-      'id': (mockUsersData.length + 1).toString(),
-      'firstName': firstName,
-      'lastName': lastName,
-      'email': userEmail,
-      'username': userEmail.split('@').first, // simple username generation
-      'password': userPassword,
-      'favoriteGenres': <String>[],
-      'profilePictureUrl': 'assets/carlos.jpeg',
-    };
+    try {
+      // 1. Cria o usuário no Firebase
+      UserCredential credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: userEmail,
+        password: userPassword,
+      );
 
-    mockUsersData.add(newUser);
+      // 2. Atualiza o displayName para salvar o nome no Firebase
+      await credential.user!.updateDisplayName("$firstName $lastName");
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Registration successful! Please log in.'),
-        backgroundColor: Colors.green,
-      ),
-    );
+      // 3. Mensagem de sucesso
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Registration successful! Please log in.'),
+          backgroundColor: Colors.green,
+        ),
+      );
 
-    Navigator.pushNamed(context, '/login');
+      // 4. Vai para o login
+      Navigator.pushNamed(context, '/login');
+    } on FirebaseAuthException catch (e) {
+      String message = 'Something went wrong';
+
+      if (e.code == 'email-already-in-use') {
+        message = 'This email is already registered.';
+      } else if (e.code == 'invalid-email') {
+        message = 'Invalid email format.';
+      } else if (e.code == 'weak-password') {
+        message = 'Password must be at least 6 characters.';
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Unexpected error occurred.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override
@@ -66,18 +90,18 @@ class _MyRegisterState extends State<MyRegister> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/fundo.png"), // mesma imagem da tela de login
+                image: AssetImage("assets/fundo.png"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
 
-          // Gradiente branco sutil sobre a imagem
+          // Gradiente sutil
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color.fromRGBO(255, 255, 255, 0.4), // ajuste aqui para controlar transparência
+                  const Color.fromRGBO(255, 255, 255, 0.4),
                   const Color.fromRGBO(255, 255, 255, 0.2),
                 ],
                 begin: Alignment.topCenter,
@@ -104,7 +128,6 @@ class _MyRegisterState extends State<MyRegister> {
                   ),
                   const SizedBox(height: 40),
 
-                  // Card de registro
                   Container(
                     padding: const EdgeInsets.all(25),
                     decoration: BoxDecoration(
@@ -120,16 +143,13 @@ class _MyRegisterState extends State<MyRegister> {
                     ),
                     child: Column(
                       children: [
-                        // Campo de Nome
+                        // NAME
                         TextField(
                           controller: name,
-                          style: const TextStyle(color: Colors.black87),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Name",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
                             prefixIcon: Icon(Icons.person_outline,
                                 color: Colors.grey.shade700),
                             border: OutlineInputBorder(
@@ -137,25 +157,17 @@ class _MyRegisterState extends State<MyRegister> {
                               borderSide:
                                   const BorderSide(color: Colors.transparent),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
-                            ),
                           ),
                         ),
                         const SizedBox(height: 20),
 
-                        // Campo de Email
+                        // EMAIL
                         TextField(
                           controller: email,
-                          style: const TextStyle(color: Colors.black87),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Email",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
                             prefixIcon: Icon(Icons.email_outlined,
                                 color: Colors.grey.shade700),
                             border: OutlineInputBorder(
@@ -163,26 +175,18 @@ class _MyRegisterState extends State<MyRegister> {
                               borderSide:
                                   const BorderSide(color: Colors.transparent),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
-                            ),
                           ),
                         ),
                         const SizedBox(height: 20),
 
-                        // Campo de Senha
+                        // PASSWORD
                         TextField(
                           controller: password,
                           obscureText: true,
-                          style: const TextStyle(color: Colors.black87),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.grey.shade100,
                             hintText: "Password",
-                            hintStyle:
-                                TextStyle(color: Colors.grey.shade600),
                             prefixIcon: Icon(Icons.lock_outline,
                                 color: Colors.grey.shade700),
                             border: OutlineInputBorder(
@@ -190,16 +194,10 @@ class _MyRegisterState extends State<MyRegister> {
                               borderSide:
                                   const BorderSide(color: Colors.transparent),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                  color: Colors.grey.shade400, width: 1.2),
-                            ),
                           ),
                         ),
                         const SizedBox(height: 30),
 
-                        // Botão preto
                         GestureDetector(
                           onTap: _register,
                           child: Container(
@@ -208,13 +206,6 @@ class _MyRegisterState extends State<MyRegister> {
                             decoration: BoxDecoration(
                               color: Colors.black,
                               borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color.fromRGBO(0, 0, 0, 0.2),
-                                  blurRadius: 6,
-                                  offset: const Offset(0, 3),
-                                ),
-                              ],
                             ),
                             child: const Center(
                               child: Text(
@@ -230,7 +221,6 @@ class _MyRegisterState extends State<MyRegister> {
                         ),
                         const SizedBox(height: 25),
 
-                        // Link para login
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -239,9 +229,8 @@ class _MyRegisterState extends State<MyRegister> {
                               style: TextStyle(color: Colors.black54),
                             ),
                             TextButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/login');
-                              },
+                              onPressed: () =>
+                                  Navigator.pushNamed(context, '/login'),
                               child: const Text(
                                 'Sign In',
                                 style: TextStyle(
