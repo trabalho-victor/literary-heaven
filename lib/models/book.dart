@@ -17,6 +17,7 @@ class Book {
   final List<String> notes;
   final int currentPage;
   final String currentChapter;
+  final bool isFavorite;
 
   Book({
     required this.id,
@@ -29,5 +30,6 @@ class Book {
     this.notes = const [],
     this.currentPage = 0,
     this.currentChapter = '',
+    this.isFavorite = false,
   });
 }

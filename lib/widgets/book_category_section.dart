@@ -39,7 +39,7 @@ class BookCategorySection extends StatelessWidget {
               itemCount: books.length,
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               itemBuilder: (context, index) {
-                return BookCoverItem(imageUrl: books[index].coverUrl);
+                return BookCoverItem(book: books[index]);
               },
             ),
           ),
