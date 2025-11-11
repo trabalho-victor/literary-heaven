@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/widgets/header.dart';
+import 'package:literary_heaven/widgets/footer.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -13,6 +14,7 @@ class ProfilePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar: const AppFooter(),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
