@@ -9,13 +9,13 @@ import 'package:literary_heaven/screens/home_screen.dart';
 import 'package:literary_heaven/screens/privacy_policy_screen.dart';
 import 'package:literary_heaven/screens/my_books_screen.dart';
 import 'package:literary_heaven/services/auth_service.dart';
+import 'package:literary_heaven/services/firestore_service.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  //await FirestoreService().uploadMockBooks();
 
   runApp(const MyApp());
 }
