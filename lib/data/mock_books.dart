@@ -9,7 +9,8 @@ final List<Book> mockBooks = [
     id: '1',
     title: 'A Revolta de Atlas',
     author: 'Ayn Rand',
-    coverUrl: 'https://i.imgur.com/v3n5n8b.jpeg',
+    coverUrl:
+        'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1580200000i/6626.jpg',
     synopsis:
         'Uma misteriosa figura chamada John Galt tenta convencer os líderes da indústria a abandonar suas empresas e se juntar a uma comunidade de artistas e empresários em uma greve.',
     status: BookStatus.reading,
@@ -18,14 +19,16 @@ final List<Book> mockBooks = [
     currentPage: 150,
     currentChapter: 'Capítulo 5',
     isFavorite: false,
-    comments: [Comment(text: 'This is a great book, highly recommend!', isOwn: false)],
+    comments: [
+      Comment(text: 'This is a great book, highly recommend!', isOwn: false),
+    ],
     personalNote: '',
   ),
   Book(
     id: '2',
     title: '1984',
     author: 'George Orwell',
-    coverUrl: 'https://i.imgur.com/sJ4f2sC.jpeg',
+    coverUrl: 'assets/1984.jpg',
     synopsis:
         'Em um futuro distópico, a sociedade é controlada por um regime totalitário que vigia todos os cidadãos e reprime qualquer forma de individualidade.',
     status: BookStatus.reading,
@@ -41,7 +44,7 @@ final List<Book> mockBooks = [
     id: '3',
     title: 'O Senhor dos Anéis',
     author: 'J.R.R. Tolkien',
-    coverUrl: 'https://i.imgur.com/qcsbVvT.jpeg',
+    coverUrl: 'assets/senhor_dos_aneis.jpg',
     synopsis:
         'Uma saga épica de fantasia sobre a jornada de um hobbit para destruir um anel mágico e derrotar o Senhor das Trevas.',
     status: BookStatus.wantToRead,
@@ -55,7 +58,7 @@ final List<Book> mockBooks = [
     id: '4',
     title: 'Duna',
     author: 'Frank Herbert',
-    coverUrl: 'https://i.imgur.com/u8nL5dD.jpeg',
+    coverUrl: 'assets/duna.jpg',
     synopsis:
         'Em um futuro distante, casas nobres lutam pelo controle do planeta deserto de Arrakis, a única fonte da especiaria melange, a substância mais valiosa do universo.',
     status: BookStatus.wantToRead,
@@ -97,7 +100,7 @@ final List<Book> mockBooks = [
     id: '7',
     title: 'Cem Anos de Solidão',
     author: 'Gabriel García Márquez',
-    coverUrl: 'https://i.imgur.com/3gCMT9E.jpeg',
+    coverUrl: 'assets/book_cover_placeholder.jpg',
     synopsis:
         'A história da família Buendía na cidade fictícia de Macondo, ao longo de sete gerações.',
     status: BookStatus.wantToRead,

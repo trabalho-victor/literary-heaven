@@ -6,10 +6,7 @@ import 'package:literary_heaven/screens/book_detail_screen.dart';
 class BookCoverItem extends StatelessWidget {
   final Book book;
 
-  const BookCoverItem({
-    super.key,
-    required this.book,
-  });
+  const BookCoverItem({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +14,7 @@ class BookCoverItem extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => BookDetailScreen(book: book),
-          ),
+          MaterialPageRoute(builder: (context) => BookDetailScreen(book: book)),
         );
       },
       child: Container(
@@ -27,30 +22,13 @@ class BookCoverItem extends StatelessWidget {
         margin: const EdgeInsets.only(right: 12.0),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
-          child: Image.network(
-            book.coverUrl,
+          child: Image.asset(
+            'assets/book_cover_placeholder.jpg',
             fit: BoxFit.cover,
-            // Error builder for handling image loading failures
+            // Basic error handling for image loading
             errorBuilder: (context, error, stackTrace) {
-              return Container(
-                color: Colors.grey[200],
-                child: const Icon(
-                  Icons.image_not_supported,
-                  color: Colors.grey,
-                  size: 40,
-                ),
-              );
-            },
-            // Loading indicator while the image is being fetched
-            loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress == null) return child;
-              return Center(
-                child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes!
-                      : null,
-                ),
+              return const Center(
+                child: Icon(Icons.book, color: Colors.grey, size: 40),
               );
             },
           ),

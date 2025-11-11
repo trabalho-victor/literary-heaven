@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/models/book.dart';
+import 'package:literary_heaven/screens/book_detail_screen.dart';
 
 class BookCard extends StatelessWidget {
   final Book book;
@@ -78,7 +79,7 @@ class BookCard extends StatelessWidget {
                   const SizedBox(height: 4.0),
                   Text(
                     book.author,
-                    style: TextStyle(fontSize: 14.0, color: Colors.grey[300]),
+                    style: TextStyle(fontSize: 14.0, color: Colors.grey[600]),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
