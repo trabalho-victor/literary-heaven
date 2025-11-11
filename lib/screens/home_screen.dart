@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:literary_heaven/data/mock_books.dart';
 import 'package:literary_heaven/widgets/book_category_section.dart';
+import 'package:literary_heaven/widgets/app_header.dart';
+import 'package:literary_heaven/widgets/footer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,19 +24,9 @@ class HomeScreen extends StatelessWidget {
     final editorsPicks = mockBooks.sublist(30, 45);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Literary Heaven'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
-        elevation: 1,
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {
-            // Placeholder for menu action
-          },
-        ),
-      ),
+      appBar: const AppHeader(),
       backgroundColor: Colors.white,
+      bottomNavigationBar: const AppFooter(),
       body: SingleChildScrollView(
         child: Column(
           children: [

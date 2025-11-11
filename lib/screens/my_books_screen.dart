@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:literary_heaven/data/mock_books.dart';
 import 'package:literary_heaven/models/book.dart';
 import 'package:literary_heaven/widgets/book_card.dart';
+import 'package:literary_heaven/widgets/app_header.dart';
+import 'package:literary_heaven/widgets/footer.dart';
 
 // Main screen that displays the user's book collections.
 class MyBooksScreen extends StatefulWidget {
@@ -41,9 +43,7 @@ class _MyBooksScreenState extends State<MyBooksScreen>
         mockBooks.where((book) => book.isFavorite).toList();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Library'),
-        backgroundColor: Colors.black87,
+      appBar: AppHeader(
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
@@ -54,6 +54,7 @@ class _MyBooksScreenState extends State<MyBooksScreen>
           ],
         ),
       ),
+      bottomNavigationBar: const AppFooter(),
       body: TabBarView(
         controller: _tabController,
         children: [

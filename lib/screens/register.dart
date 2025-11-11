@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:literary_heaven/data/mock_users.dart';
+import 'package:literary_heaven/widgets/footer.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({super.key});
@@ -11,6 +13,49 @@ class _MyRegisterState extends State<MyRegister> {
   final TextEditingController name = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+
+  void _register() {
+    final userName = name.text;
+    final userEmail = email.text;
+    final userPassword = password.text;
+
+    if (userName.isEmpty || userEmail.isEmpty || userPassword.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please fill all fields.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    // Simple name split
+    final nameParts = userName.split(' ');
+    final firstName = nameParts.isNotEmpty ? nameParts.first : '';
+    final lastName = nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '';
+
+    final newUser = {
+      'id': (mockUsersData.length + 1).toString(),
+      'firstName': firstName,
+      'lastName': lastName,
+      'email': userEmail,
+      'username': userEmail.split('@').first, // simple username generation
+      'password': userPassword,
+      'favoriteGenres': <String>[],
+      'profilePictureUrl': 'assets/carlos.jpeg',
+    };
+
+    mockUsersData.add(newUser);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Registration successful! Please log in.'),
+        backgroundColor: Colors.green,
+      ),
+    );
+
+    Navigator.pushNamed(context, '/login');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,9 +201,7 @@ class _MyRegisterState extends State<MyRegister> {
 
                         // Botão preto
                         GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, 'login');
-                          },
+                          onTap: _register,
                           child: Container(
                             width: double.infinity,
                             padding: const EdgeInsets.symmetric(vertical: 14),
@@ -197,7 +240,7 @@ class _MyRegisterState extends State<MyRegister> {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'login');
+                                Navigator.pushNamed(context, '/login');
                               },
                               child: const Text(
                                 'Sign In',
@@ -211,7 +254,7 @@ class _MyRegisterState extends State<MyRegister> {
                         ),
                       ],
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:literary_heaven/screens/home_screen.dart';
-import 'package:literary_heaven/screens/my_books_screen.dart';
+import 'package:literary_heaven/data/mock_users.dart';
+import 'package:literary_heaven/models/user.dart';
+import 'package:literary_heaven/screens/profile.dart';
+import 'package:literary_heaven/services/auth_service.dart';
+import 'package:literary_heaven/widgets/footer.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
+
 
   @override
   State<MyLogin> createState() => _MyLoginState();
@@ -12,6 +16,35 @@ class MyLogin extends StatefulWidget {
 class _MyLoginState extends State<MyLogin> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
+  void _login() {
+    final userEmail = email.text;
+    final userPassword = password.text;
+
+    try {
+      final userMap = mockUsersData.firstWhere(
+        (user) => user['email'] == userEmail && user['password'] == userPassword,
+      );
+
+      final user = User.fromMap(userMap, userMap['id']);
+
+      AuthService().currentUser = user;
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ProfilePage(user: user),
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Invalid email or password.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,16 +189,7 @@ class _MyLoginState extends State<MyLogin> {
 
                         // Botão preto
                         GestureDetector(
-                          onTap: () {
-                            // Simulate successful login
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                //builder: (context) => HomeScreen(),
-                                builder: (context) => MyBooksScreen(),
-                              ),
-                            );
-                          },
+                          onTap: _login,
                           child: Container(
                             width: double.infinity,
                             padding: const EdgeInsets.symmetric(vertical: 14),
@@ -200,7 +224,7 @@ class _MyLoginState extends State<MyLogin> {
                           children: [
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'register');
+                                Navigator.pushNamed(context, '/register');
                               },
                               child: const Text(
                                 'Sign Up',

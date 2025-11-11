@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:literary_heaven/models/book.dart';
 import 'package:literary_heaven/data/mock_books.dart';
 import 'package:literary_heaven/models/comment.dart'; // Import Comment model
-import 'package:literary_heaven/widgets/comment_card.dart'; // Import CommentCard widget
+import 'package:literary_heaven/widgets/app_header.dart';
+import 'package:literary_heaven/widgets/comment_card.dart';
+import 'package:literary_heaven/widgets/footer.dart'; // Import CommentCard widget
 
 class BookDetailScreen extends StatefulWidget {
   final Book book;
+
 
   const BookDetailScreen({super.key, required this.book});
 
@@ -115,12 +118,11 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppHeader(
         title: Text(_currentBook.title),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
-        elevation: 1,
+        showBackButton: true,
       ),
+      bottomNavigationBar: const AppFooter(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:literary_heaven/widgets/header.dart';
+import 'package:literary_heaven/models/user.dart';
+import 'package:literary_heaven/screens/login.dart';
+import 'package:literary_heaven/widgets/app_header.dart';
+import 'package:literary_heaven/services/auth_service.dart';
 import 'package:literary_heaven/widgets/footer.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  final User user;
+
+  const ProfilePage({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +18,7 @@ class ProfilePage extends StatelessWidget {
     const darkText = Color(0xFF2E2D26);
 
     return Scaffold(
+      appBar: const AppHeader(),
       backgroundColor: Colors.white,
       bottomNavigationBar: const AppFooter(),
       body: SafeArea(
@@ -21,7 +27,6 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const AppHeader(),
               const SizedBox(height: 20),
               Container(
                 width: double.infinity,
@@ -54,7 +59,7 @@ class ProfilePage extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(14),
                         child: Image.asset(
-                          "assets/carlos.jpeg",
+                          user.profilePictureUrl ?? "assets/carlos.jpeg",
                           width: 180,
                           height: 240,
                           fit: BoxFit.cover,
@@ -62,10 +67,10 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 25),
-                    const Center(
+                    Center(
                       child: Text(
-                        "Lobo Mau",
-                        style: TextStyle(
+                        '${user.firstName} ${user.lastName}',
+                        style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w700,
                           color: darkText,
@@ -74,11 +79,11 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 30),
-                    _infoItem("Email:", "carlos@example.com"),
-                    _infoItem("Username:", "carlos_silva"),
+                    _infoItem("Email:", user.email),
+                    _infoItem("Username:", user.username),
                     _infoItem(
                       "Favorite Genre:",
-                      "Fantasy, Mystery, Science Fiction",
+                      user.favoriteGenres.join(', '),
                     ),
                     _infoItem("Books Read:", "120"),
                     _infoItem("Currently Reading:", "Little Red Riding Hood"),
@@ -96,7 +101,14 @@ class ProfilePage extends StatelessWidget {
                         _profileButton(
                           label: "Exit",
                           color: darkRed,
-                          onTap: () {},
+                          onTap: () {
+                            AuthService().currentUser = null;
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => const MyLogin()),
+                              (Route<dynamic> route) => false,
+                            );
+                          },
                         ),
                       ],
                     ),
