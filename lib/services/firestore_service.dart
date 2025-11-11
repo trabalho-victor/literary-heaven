@@ -67,6 +67,15 @@ class FirestoreService {
     return _db.collection('users').doc(user.id).update(user.toMap());
   }
 
+  // Get a user document from Firestore
+  Future<User?> getUser(String uid) async {
+    final doc = await _db.collection('users').doc(uid).get();
+    if (doc.exists) {
+      return User.fromMap(doc.data()!, doc.id);
+    }
+    return null;
+  }
+
   // Upload mock books to Firestore if they don't exist
   Future<void> uploadMockBooks() async {
     final booksCollection = _db.collection('books');

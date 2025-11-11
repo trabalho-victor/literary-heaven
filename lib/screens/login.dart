@@ -18,21 +18,26 @@ class _MyLoginState extends State<MyLogin> {
     final userEmail = email.text;
     final userPassword = password.text;
 
-    try {
-      final user = await _authService.signInWithEmailAndPassword(
-        userEmail,
-        userPassword,
-      );
-      if (user != null) {
+    final user = await _authService.signInWithEmailAndPassword(
+      userEmail,
+      userPassword,
+    );
+
+    if (user != null) {
+      // Login successful
+      if (mounted) {
         Navigator.pushReplacementNamed(context, '/home');
       }
-    } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(e.message ?? 'An unknown error occurred.'),
-          backgroundColor: Colors.red,
-        ),
-      );
+    } else {
+      // Login failed
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Invalid email or password. Please try again.'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
   }
 

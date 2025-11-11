@@ -6,24 +6,15 @@ class AuthService {
   final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
   final FirestoreService _firestoreService = FirestoreService();
 
-  User? _userFromFirebase(auth.User? user) {
+  Future<User?> _userFromFirebase(auth.User? user) async {
     if (user == null) {
       return null;
     }
-    // This is a placeholder. In a real app, you would fetch the user profile
-    // from Firestore here based on the user.uid.
-    return User(
-      id: user.uid,
-      firstName: user.displayName ?? '',
-      lastName: '',
-      email: user.email ?? '',
-      username: user.email?.split('@').first ?? '',
-      favoriteGenres: [],
-    );
+    return await _firestoreService.getUser(user.uid);
   }
 
   Stream<User?> get user {
-    return _firebaseAuth.authStateChanges().map(_userFromFirebase);
+    return _firebaseAuth.authStateChanges().asyncMap(_userFromFirebase);
   }
 
   Future<User?> signInWithEmailAndPassword(
@@ -42,26 +33,31 @@ class AuthService {
     String email,
     String password,
   ) async {
-    final credential = await _firebaseAuth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+    try {
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-    await credential.user?.updateDisplayName(name);
+      await credential.user?.updateDisplayName(name);
 
-    final newUser = User(
-      id: credential.user!.uid,
-      firstName: name,
-      lastName: '',
-      email: email,
-      username: email.split('@').first,
-      favoriteGenres: [],
-      profilePictureUrl: 'assets/carlos.jpeg', // default picture
-    );
+      final newUser = User(
+        id: credential.user!.uid,
+        firstName: name,
+        lastName: '',
+        email: email,
+        username: email.split('@').first,
+        favoriteGenres: [],
+        profilePictureUrl: 'assets/carlos.jpeg', // default picture
+      );
 
-    await _firestoreService.createUser(newUser);
+      await _firestoreService.createUser(newUser);
 
-    return _userFromFirebase(credential.user);
+      return _userFromFirebase(credential.user);
+    } catch (e) {
+      print('Error during registration: $e');
+      return null;
+    }
   }
 
   Future<void> signOut() async {

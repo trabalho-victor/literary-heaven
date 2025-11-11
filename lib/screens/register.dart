@@ -38,6 +38,13 @@ class _MyRegisterState extends State<MyRegister> {
       );
       if (user != null) {
         Navigator.pushReplacementNamed(context, '/home');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('An unknown error occurred.'),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
